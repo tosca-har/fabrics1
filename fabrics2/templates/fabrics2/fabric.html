@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block page_title %} Fabric Details {% endblock %}
+{% block content %}
+<h1>Fabric Code: {{ fabric }}</h1>
+{% if desc is not None %}
+<h2>Fabric Description: {{ desc |title }}</h2>
+<h2>Region</h2>
+<h2>Calcareous etc</h2>
+<h2>Refs</h2>
+<h2>Long Description</h2>
+<h2>Table of Full scans</h2>
+<h2>Table of images</h2>
+<h2>Map?</h2>
+<h2>Low Res images</h2>
+{% else %}
+<p>No details</p>
+{% endif %} {% endblock %}

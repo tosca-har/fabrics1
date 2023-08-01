@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+  {% block page_title %}
+  Fabric Index
+  {% endblock %}
+
+  {% block content %}
+    <ul>
+      {% for fabric in fabrics %}
+         <li><a href="{% url "fabric-type" fabric %}">{{ fabric }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endblock %}
