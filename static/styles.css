@@ -3,14 +3,17 @@
 html {
     font-family: 'IBM Plex Sans', sans-serif;
 }
-
+body {
+    margin: 0rem 1rem 1rem 1rem;
+    background-color: #5f5c5c;;
+}
 
 
 p {
     font-size: 1rem;
     font-weight: normal;
     text-align: left;
-    color: white;
+    color: #ffffcf;
     margin: 2rem 1rem 1rem 1rem;
 }
 
@@ -18,13 +21,13 @@ h1 {
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
-    color: white;
+    color: #e35d30;
     margin: 2rem 0 1rem 0;
 }
 h2 {
     font-size: 2rem;
     text-align: left;
-    color: antiquewhite;
+    color: #dbae3d;
     font-weight: normal;
     margin: 2rem 2rem 1rem 2rem;
 }

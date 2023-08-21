@@ -6,6 +6,7 @@ from .forms import SearchForm
 
 
 abundances = ["None", "Minor","Few", "Common", "Frequent", "Major", "Very Dominant"]
+ab = ["n", "m", "f", "C", "F", "M", "V"]
 
 def home(request):
     return render(request, "fabrics2/home.html")
@@ -74,7 +75,8 @@ def fabric(request, slug):
         "fabric": identified_fabric,
         "fabric_slides": id_fabrics,
         "fabric_references": identified_fabric.refs.all(),
-        "fabric_sites": Site.objects.all().filter(slides__in = id_fabrics).distinct()
+        "fabric_sites": Site.objects.all().filter(slides__in = id_fabrics).distinct(),
+        "ab": ab
 
     })
 

@@ -4,6 +4,7 @@
 {% block css_files %}
   <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
   <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+  <script src="{% static "fabrics2/map.js" %}"></script>
 {% endblock %}
 
 {% block page_title %}
@@ -12,6 +13,7 @@
 
 {% block content %}
   {% include "fabrics2/includes/header.html" %}
+  <button onclick="myFunction()">Click me!</button>
     <ul>
       {% for site in sites %}
          <li><a href="{% url "site-type" site.slug %}">{{ site.name }}</a></li>

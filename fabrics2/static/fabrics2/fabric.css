@@ -1,7 +1,4 @@
-body {
-    margin: 0rem 1rem 1rem 1rem;
-    background-color: #5f5c5c;
-}
+
 
 h1 {
     font-size: 3rem;
@@ -79,7 +76,7 @@ figcaption a:active {
   .slidetable [data-tag="6"] {
 
     text-align: center;
-    background-color: #950101;
+    background-color: #8e0101;
     color: white;
   }
   .slidetable [data-tag="5"] {
@@ -92,25 +89,25 @@ figcaption a:active {
  
     text-align: center;
     background-color: #e35d30;
-    color: white;
+    color: rgb(63, 62, 62);
   }
   .slidetable [data-tag="3"] {
 
     text-align: center;
     background-color: #db7f3d;
-    color: white;
+    color: rgb(63, 62, 62);
   }
   .slidetable [data-tag="2"] {
 
     text-align: center;
     background-color: #dbae3d;
-    color: white;
+    color: rgb(63, 62, 62);
   }
   .slidetable [data-tag="1"] {
 
     text-align: center;
     background-color: #f8e64f;
-    color: white;
+    color: rgb(119, 116, 116);
   }
   .slidetable [data-tag="0"] {
 
