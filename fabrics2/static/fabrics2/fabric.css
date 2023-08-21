@@ -1,0 +1,121 @@
+body {
+    margin: 0rem 1rem 1rem 1rem;
+    background-color: #5f5c5c;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin: 2rem 0 1rem 0;
+}
+h2 {
+    font-size: 2rem;
+    text-align: left;
+    color: antiquewhite;
+    font-weight: normal;
+    margin: 2rem 2rem 1rem 2rem;
+}
+
+
+.fallback {
+    text-align: center;
+    color: white
+}
+figcaption {
+    font-size: 0.8rem;
+    color: rgb(127, 225, 255);
+    font-style: italic;
+}
+
+a {
+    color: rgb(255, 127, 127);
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #3a87b1;
+}
+
+figcaption a {
+    color: rgb(255, 127, 127);
+    text-decoration: none;
+}
+
+figcaption a:hover,
+figcaption a:active {
+    color: #3a87b1;
+}
+
+
+.slidetable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .slidetable td, .fabrictable th {
+    padding: 8px;
+  }
+  
+  .slidetable tr {
+    border-bottom: 2px solid black;
+  } 
+  
+  .slidetable td {
+  color: antiquewhite;
+  }
+  .slidetable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #acaead;
+    color: rgb(73, 72, 72);
+    border: 1px solid #ddd;
+  }
+  
+  .slidetable [data-tag="6"] {
+
+    text-align: center;
+    background-color: #950101;
+    color: white;
+  }
+  .slidetable [data-tag="5"] {
+
+    text-align: center;
+    background-color: #e93e3a;
+    color: white;
+  }
+  .slidetable [data-tag="4"] {
+ 
+    text-align: center;
+    background-color: #e35d30;
+    color: white;
+  }
+  .slidetable [data-tag="3"] {
+
+    text-align: center;
+    background-color: #db7f3d;
+    color: white;
+  }
+  .slidetable [data-tag="2"] {
+
+    text-align: center;
+    background-color: #dbae3d;
+    color: white;
+  }
+  .slidetable [data-tag="1"] {
+
+    text-align: center;
+    background-color: #f8e64f;
+    color: white;
+  }
+  .slidetable [data-tag="0"] {
+
+    text-align: center;
+    background-color: #ffffcf;
+    color: rgb(119, 116, 116);
+  }
+

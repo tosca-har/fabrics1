@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+{% endblock %}
+
+{% block page_title %}
+  Kuden Home
+{% endblock %}
+
+{% block content %}
+  {% include "fabrics2/includes/header.html" %}
+  <h1>Pottery Fabric Database</h1>
+  <h2>Pacific Petrography</h2>
+  <p>Petrography is...Temper is....Pacific islands have different geology so petrography is great.</p>
+  <h2>How to use this site</h2>
+  <p>This is how you search. </p>
+  <h2>How to use Kuden</h2>
+  <p>Kuden is an OMERO (add link) implementation, it holds our database of images, including those made with the Axon Scanner. You will need to sign in as user:Guest pwd:Guest. 
+ If you reach Kuden from a link here you will be taken straight to the viewer for that image. </p>
+ <p>If you are viewing a whole slide image, you can turn the filters shown off and on by the clicking the Red, Green and Blue buttons that match that filter. Remember to click the previous filter off (Red, Green and Blue buttons). You can change the brightness of the image by adjusting the sliders, its strongly advisable to use the same value for the Red, Green and Blue channels. A few slides have an extra scan for PPL on 'over exposed' settings. This is noted (where?). If present this scan should be abover or below the selected one in the thumbnail panel on the left.</p>  
+ <p>If you are viewing a non-whole slide image, you can see the XPL version by using the vertical slider on the left. The XPL image will be at the bottom, some image stacks have a middle image which will show the PPL or XPL at a different brightness.</p>  
+ <p>If you are viewing a non-whole slide image, you may be able to find other photos of the same sample by clicking on the thumbnails on the left, their names should indicate if they are the same slide.</p>  
+<p>To see more information on the slide, go to 'Info' and click on the Image ID number, this should open the main site. If going to the main site directly you may need to change the user (red and grey people icon near the top left) to public-data > All Members. </p>
+<p>In the main site you can filter the images or full slides (VIMIPO) by key-value pairs, but you first have to select the folder you wish to search. Then you can 'Add Filter' and filter by keys such as slide id or mineral abundance. </p>
+
+  <h2>Mineral Abundances</h2>
+  <p>Table of mineral abundance levels and words.</p>
+  <h3>Very Dominant (70% to 100%)</h3>
+  {% include "fabrics2/includes/captionF.html" with sherd="ECA66-7-3" site="Talepakemalai" sample="ECA66_7_3" slide="WD_36_17" num="799" numf="16" extra="Example of Very Dominant calcareous" %} 
+
+  <h3>Major (50% to 70%)</h3>
+  {% include "fabrics2/includes/captionF.html" with sherd="ECA90-2-1" site="Talepakemalai" sample="ECA90_2_1" slide="WD_39_17" num="814" numf="25" extra="Example of Major calcareous" %} 
+
+  <h3>Frequent (30% to 50%)</h3>
+  {% include "fabrics2/includes/captionF.html" with sherd="UL6" site="Ulong Islet" sample="UL6" slide="WD_12_13" num="1729" numf="177" extra="Example of Frequent calcareous" %} 
+
+  <h3>Common (15% to 30%)</h3>
+  {% include "fabrics2/includes/captionF.html" with sherd="DGD223" site="Nissan" sample="DGD223" slide="WD_38_12" num="742" numf="456" extra="Example of Common calcareous" %} 
+
+  <h3>Few (5% to 15%)</h3>
+  {% include "fabrics2/includes/captionF.html" with sherd="1595" site="Nukuleka" sample="Nukuleka_1595" slide="WD_89_5" num="1271" numf="270" extra="Example of Few calcareous" %} 
+
+  <h3>Minor (0% to 5%)</h3>
+  {% include "fabrics2/includes/captionF.html" with sherd="ECA90-4-9" site="Talepakemalai" sample="ECA90_4_9" slide="WD_39_20" num="816" numf="28" extra="Example of Minor calcareous" %} 
+
+  <h2>William Dickinson</h2>
+  <p>Dickinson was great! photo? <a href="https://news.arizona.edu/story/william-r-dickinson-major-figure-in-plate-tectonics-and-pacific-archaeology-dies">Bill Dickinson</a> and/or
+    <a href="https://www.geo.arizona.edu/sites/www.geo.arizona.edu/files/WR%20Dickinson%20-%20Nat%20Acad%20Sci%20biography%20-%202016.pdf">Bill Dickinson Tribute pdf</a> 
+</p>
+  <h2>Adding your images/slides to the database</h2>
+  <p>contact us</p>
+  <h2>References</h2>
+  <p>separate page?</p>
+
+
+{% endblock %}

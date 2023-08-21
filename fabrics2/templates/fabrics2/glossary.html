@@ -1,0 +1,158 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block css_files %}
+ <link rel="stylesheet" href="{% static "fabrics2/glossary.css" %}">
+<link rel="stylesheet" href="{% static "fabrics2/header.css" %}"> 
+{% endblock %} 
+{% block page_title %} 
+Glossary 
+{% endblock %} 
+{% block content %} 
+{% include "fabrics2/includes/header.html" %}
+<h1>Glossary</h1>
+<div id="wordlist">
+<ul>
+  <li><a href="#amp">Amphiboles</a></li>
+  <li><a href="#and">Andesitic</a></li>
+  <li><a href="#aph">Aphanitic</a></li>
+  <li><a href="#arg">Argillitic</a></li>
+  <li><a href="#bas">Basaltic</a></li>
+  <li><a href="#bio">Biotite</a></li>
+  <li><a href="#cal">Calcareous</a></li>
+  <li><a href="#che">Chert</a></li>
+  <li><a href="#dac">Dacitic</a></li>
+  <li><a href="#epi">Epidote</a></li>
+  <li><a href="#fel">Feldspar</a></li>
+  <li><a href="#fes">Felsitic</a></li>
+  <li><a href="#gar">Garnet</a></li>
+  <li><a href="#gro">Grog</a></li>
+  <li><a href="#hyb">Hypabassal</a></li>
+  <li><a href="#irf">Igneous Rock Fragments</a></li>
+  <li><a href="#lat">Lathwork</a></li>
+  <li><a href="#lim">Limeclast</a></li>
+  <li><a href="#sed">Metasedimentary</a></li>
+  <li><a href="#met">Metavolcanic</a></li>
+  <li><a href="#mia">Mica</a></li>
+  <li><a href="#mid">Microdioritic</a></li>
+  <li><a href="#mic">Microlitic</a></li>
+  <li><a href="#mph">Microphaneritic</a></li>
+  <li><a href="#mus">Muscovite</a></li>
+  <li><a href="#oli">Olivine</a></li>
+  <li><a href="#oro">Orogenic</a></li>
+  <li><a href="#opa">Opaque iron oxides</a></li>
+  <li><a href="#pha">Phaneritic</a></li>
+  <li><a href="#pla">Placer</a></li>
+  <li><a href="#plu">Plutonic</a></li>
+  <li><a href="#pyr">Pyroxene</a></li>
+  <li><a href="#qua">Quartz</a></li>
+  <li><a href="#qze">Quartzite</a></li>
+  <li><a href="#sed">Sedimentary</a></li>
+  <li><a href="#sil">Siltstone</a></li>
+  <li><a href="#tec">Tectonic</a></li>
+  <li><a href="#vit">Vitric</a></li>
+
+</ul>
+</div>
+<h2 id="cal">Calcareous</h2>
+<p>
+  Calcarous (calcium carbonate) fabrics include those from reef debri (such as VasinoVA_A1_23) and those from
+ <mark id="lim">limeclasts</mark> (limestone clasts) (such as TTP2_4). While limestones are <a href="#sed">sedimentary rocks</a>, they were usually included in 'calcareous' by Dickinson, and so have been here.
+  Beach ("white") sand, with the bioclasts ('skeletons') of minute reef organisms (formanifera), was a commonly used temper, and for many Pacific atoll communities it was the only one available. Most Pacific sites feature at least one calcareous or hybrid calcareous temper. Unfortunately this makes reef debri calcareous tempers hard to source to location, although their presence at an inland site is evidence of pottery (or at least temper) importation.
+In contrast, limeclast fabrics may derive from interior eroded limestones and thus can potentially be more diagnostic. Limeclasts can be distinguished from the bioclasts by their unordered internal structure, although the possibility of degraded bioclasts is a confounding factor. Limeclast fabrics are found in Timor, the Marianas and Vanuatu.</p>
+<p>Calcareous inclusions are light grey in both PPL and XPL (higher order colours).</p>
+{% include "fabrics2/includes/captionF.html" with sherd="VA_A1_23" site="Vasino, Timor" sample="VasinoVA_A1_23" slide="WD_86_12" num="1771" numf="264" extra="Features formanifera reef debri."%} 
+{% include "fabrics2/includes/captionF.html" with sherd="TTP2_4" site="Telepunu, Timor" sample="TelepunuTTP2_4" slide="WD_86_6" num="1583" numf="249" extra="Features limeclasts." %} 
+
+<h2 id="qua">Quartz</h2>
+<p>
+  Quartz is an important distinguishing mineral in the Pacific, as it only occurs in some tempers, such as those from New Caledonia, Maluku, PNG, Carolines, and Marianas. In the Marianas they are indicative of Saipan, the only Mariana's island with <a href="#dac">dacitic</a> fabrics.
+</p>
+<p>Quartz minerals are white in PPL and white, grey or extinct (black) in XPL (first order colours). They often have undolose (wavy) extinction, where the extinction travels across the crystal as the polarisation angle changes. Their resistance to alteration/degradation (compared to feldspars) can also be a diagnostic feature.</p>
+{% include "fabrics2/includes/captionF.html" with sherd="On8" site="Ondor, Maluku" sample="OndorOn8" slide="WD_18_10" num="1296" numf="330" extra="Origin Gorom. Also contains quartzite and tectonite." %} 
+
+<h2 id="fel">Feldspars</h2>
+<p>
+  Feldspars include K-felspars and plagioclase (twinned in XPL). Those with
+  plagioclase feldspars include ...
+</p>
+{% include "fabrics2/includes/captionF.html" with sherd="TC4" site="Teouma, Vanuatu" sample="TeoumaTC4" slide="WD_44_5" num="1623" numf="420" extra="Partially placered fabric with twinned plagioclase." %} 
+<h2 id="amp">Amphiboles</h2>
+<p>The most common amphibole in Pacific tempers is hornblende. Found in ... Solomons has ...</p>
+{% include "fabrics2/includes/captionF.html" with sherd="4180_BS4" site="Paubake (Buin), Bougainville" sample="Paubake4180_BS_4" slide="WD_34_11" num="1337" numf="78" extra="Features yellow/brown hornblendes." %}
+{% include "fabrics2/includes/captionF.html" with sherd="201T_BS14" site="Teop Islet, Bougainville" sample="Teop_201T_BS14" slide="WD_35_3" num="1587" numf="93" extra="Features green hornblendes. Sherd made in Buka." %}
+
+<h2 id="pyr">Pyroxene</h2>
+<p>Most common pyroxene in Pacific tempers is clinopyroxene, although orthopyroxene also occurs.</p>
+{% include "fabrics2/includes/captionF.html" with sherd="DFF2" site="Nissan Island" sample="DFF2" slide="WD_38_14" num="1296" numf="438" extra="Likely from the Tabar-Lihir-Tanga-Feni (TLTF) island chain." %} 
+
+<h2 id="opa">Opaque iron oxides</h2>
+<p>text here .</p>
+{% include "fabrics2/includes/captionF.html" with sherd="TC11" site="Teouma, Vanuatu" sample="TeoumaTC11" slide="WD_45_12" num="1635" numf="381" %} 
+
+<h2 id="oli">Olivine</h2>
+<p>text here, not found in abundances above 15%, .</p>
+<h2 id="mia">Mica</h2>
+<p>Micas include <mark id="bio"> biotite </mark> and <mark id="mus"> muscovite </mark> </p>
+<h2 id="epi">Epidote</h2>
+<p>text here.</p>
+<h2 id="gar">Garnet</h2>
+<p>text here. Not found in abundances above 5%.</p>
+<h2 id="irf">Igneous Rock Fragments</h2>
+<p>Igneous rocks are derived from crytallised magma. Igneous rocks are classified by crystal size, which is dependent on magma cooling time. In volcanic rocks, the magma cooled on the earths surface resulting in a <mark id="aph"> aphanitic </mark> (very fine) texture.
+The cateogory traditionally includes <mark id="vit">vitric</mark> (glass) fragments. The colour of the glass varies from brown or red to colourless.</p>
+<h2 id="fes">Felsitic</h2>
+<p>text here.</p>
+<h2 id="lat">Lathwork</h2>
+<p>text here.</p>
+{% include "fabrics2/includes/captionF.html" with sherd="61-1" site="Erromango, Vanuatu" sample="Ponamla61_1" slide="WD_57_1" num="1364" numf="429" extra="Lithics include those with vitric, lathwork and microlitic textures." %} 
+
+<h2 id="mic">Microlitic</h2>
+<p>text here.</p>
+<h2 id="mph">Microphaneritic</h2>
+<p>text here include <mark id="mid"> microdiorites </mark> and <mark id="hyb"> hypabassal </mark>. </p>
+{% include "fabrics2/includes/captionF.html" with sherd="12-4" site="Malakula, Vanuatu" sample="PortStanley12_4" slide="WD_49_22" num="1369" numf="369" %} 
+<p>  <mark id="plu">Plutonic rocks (aka intrusive, plutonite) </mark> are igneous rocks where the crystalisation (upon magma cooling) occurred beneath the earth's surface. The slower cooling results in larger crystals (ie a <mark id="pha">phaneritic</mark> texture) </p>
+
+<h2 id="met">Metavolcanic</h2>
+<p>text here.</p>
+{% include "fabrics2/includes/captionF.html" with sherd="Ngulu9" site="Ngulu, Carolines" sample="Ngulu9" slide="WD_10_14" num="1262" numf="189" extra="Origin Yap." %} 
+
+<h2 id="sed">Sedimentary and Metasedimentary</h2>
+<p>Sedimentary rocks are formed by accumulation/deposition. Metasedimentary rocks are formed when sedimentary rocks are altered by high pressure or temperature and have striated crystals.  
+
+
+
+
+
+<mark  id="qze">Quartzite</mark>
+
+<mark  id="che">Chert</mark>
+
+<mark  id="sil">Siltstone</mark>
+
+<mark  id="tec">Tectonite</mark>
+
+<mark  id="arg">Argillitic</mark></p>
+{% include "fabrics2/includes/captionF.html" with sherd="BX13" site="Buru, Maluku" sample="BuruBX13" slide="WD_18_2" num="722" numf="324" extra="Contains metasedimentary lithics." %} 
+
+<h2 id="gro">Grog</h2>
+{% include "fabrics2/includes/captionF.html" with sherd="UL1" site="Ulong Islet, Carolines" sample="UL1" slide="WD_12_8" num="1723" numf="174" %} 
+<p>In the Pacific, the use of broken/crushed pottery as temper is mainly limited to the Carolines.</p>
+<h2 id="and">Andesitic</h2>
+<p>Andesites are igneous (volcanic) rocks that have intermediate silica levels. They are primarily made of plagioclase feldspars, clinopyroxenes, hornblendes and glass.</p>
+<p>'Andesitic arc' fabrics are one of the main 'temper' types of the Pacific. They are found in the Marianas, Palau, Bismarcks, Solomons, Vanuatu, Maluku, Fiji and Tonga, where volcanic islands arcs were affected by plate boundary interactions. They are dominated by andesite and basalt lithic fragments and the andesite minerals (plagioclase, clinopyroxenes and sometimes hornblende). Quartz and quartz containing dacitic rocks occur in selected 'andesitic arc' fabrics.</p>
+{% include "fabrics2/includes/captionF.html" with sherd="SAN4" site="Santo, Vanuatu" sample="SantoSAN4" slide="WD_57_13" num="1484" numf="378" extra="Andesitic fabric from Vanuatu." %} 
+<h2 id="dac">Dacitic</h2>
+<p>Dacitic rocks are similar to andesitic rocks, but contain higher levels of quartz. Within the Marianas, Saipan is the most likely source of dacitic fabrics.</p>
+{% include "fabrics2/includes/captionF.html" with sherd="LATTE94" site="Tinian, Marianas" sample="IBB_Tinian94" slide="WD_2_13" num="1007" numf="213" extra="The glassy dacitic fabric indicates that while found on Tinian, the pot this sherd was from probably originated from Saipan." %} 
+<h2 id="bas">Basaltic</h2>
+<p>text here.</p>
+<h2 id="oro">Orogenic</h2>
+<p>text here.</p>
+<h2 id="pla">Placer</h2>
+<p>text here.</p>
+<h2 id="ref">References</h2>
+<ol class="refer">
+    <li><a href="http://www.ucl.ac.uk/~ucfbrxs/PLM/PLMhome.html">Siddall, R., 2014, Minerals Menu: a catalogue of minerals & textures in thin section.</a></li>
+</ol>
+{% endblock %}

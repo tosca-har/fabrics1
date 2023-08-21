@@ -1,0 +1,12 @@
+{% load static %}
+<header>
+ 
+  <nav>
+    <img src="{% static "images/KudenLogo.jpg" %}" alt="vimipo_logo" height="100"> &emsp; | &emsp;
+    <a href="{% url "home" %}">Home</a> &emsp; | &emsp;
+    <a href="{% url "index" 0 %}">All Fabrics</a> &emsp; | &emsp;
+    <a href="{% url "search" %}">Fabric Search</a> &emsp; | &emsp;
+    <a href="{% url "site-index" %}">All Sites</a> &emsp; | &emsp;
+    <a href="{% url "glossary" %}">Glossary</a>
+  </nav>
+</header>
