@@ -1,19 +1,25 @@
-
+h1 {
+    margin: auto;
+    width: 50%;
+    
+}
 figcaption {
     font-size: 0.8rem;
-    color: rgb(127, 225, 255);
+    color: #f8e64f;
     font-style: italic;
 }
 
+
 figcaption a {
-    color: rgb(255, 127, 127);
+    color:  #db7f3d;
     text-decoration: none;
 }
 
 figcaption a:hover,
 figcaption a:active {
-    color: #3a87b1;
+    color: #8e0101;
 }
+
 
 ul {
     float: left;
@@ -38,12 +44,12 @@ li{
 
 li a {
     text-decoration: none;
-    color: #052dcb;
+    color: #8e0101;
 }
 
 li a:hover,
 li a:active {
-    color: #3a87b1;
+    color: #db7f3d;
 }
 
 ol {

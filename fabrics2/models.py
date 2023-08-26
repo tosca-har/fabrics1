@@ -67,6 +67,8 @@ class Fabric(models.Model):
     limeclast = models.BooleanField(default=False)
     comments = models.CharField(null=True, max_length=500)
     refs = models.ManyToManyField(Report, related_name="fabrics", blank=True)
+    has_full = models.BooleanField(default=False) 
+    has_image = models.BooleanField(default=False) 
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -81,14 +83,25 @@ class Site(models.Model):
     island = models.CharField(max_length= 20, null=True)
     lat = models.DecimalField(null=True, max_digits=9, decimal_places=6) 
     lng = models.DecimalField(null=True, max_digits=9, decimal_places=6)
-
+    fabrics = models.ManyToManyField(Fabric, related_name="sites", blank=True)
+    has_full = models.BooleanField(default=False) 
+    has_image = models.BooleanField(default=False) 
+   
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.slug} ({self.island})" 
-
+    
+    @property
+    def fabric_string(self):
+        fabs = self.fabrics.all()
+        fabstring = ''
+        for fab in fabs:
+            fabstring = fabstring + " (" + fab.name + " " + fab.desc + ")"
+        return fabstring
+    
 class Slide(models.Model):
     name = models.CharField(max_length= 20, db_index=True, unique=True)
     fabric = models.ForeignKey(Fabric, on_delete=models.SET_NULL, null=True, related_name="slides")

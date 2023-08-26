@@ -41,7 +41,7 @@ color: antiquewhite;
 
   text-align: center;
   background-color: #e35d30;
-  color: rgb(63, 62, 62);
+  color: white;
 }
 .fabrictable [data-tag="3"] {
 
@@ -64,7 +64,8 @@ color: antiquewhite;
 .fabrictable [data-tag="0"] {
 
   text-align: center;
-  background-color: #ffffcf;
+  /* background-color: #ffffcf; */
+  background-color: white;
   color: rgb(119, 116, 116);
 }
 
@@ -75,11 +76,16 @@ ul {
   list-style: none;
   margin: 2rem auto;
   width: 90%;
-  max-width: 20rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+  max-width: 200rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
   border-radius: 12px;
-  background-color: #f1eeee;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 210rem;
+  background-color: #eeeeee;
+  font-size: 1rem;
   
 }
 
@@ -98,21 +104,30 @@ li:last-of-type {
 
 li a {
 text-decoration: none;
-color: navy;
+color:  #8e0101;
 }
 
 li a:hover,
 li a:active {
-color: purple;
+color: #e35d30;
+}
+
+figcaption {
+  font-size: 0.8rem;
+  color: #f8e64f;
+  font-style: italic;
 }
 
 
-a {
+figcaption a {
+  color:  #db7f3d;
   text-decoration: none;
-  color: palegoldenrod;
 }
 
-a:hover,
-a:active {
-  color: yellow;
+figcaption a:hover,
+figcaption a:active {
+  color: #8e0101;
 }
+
+
+

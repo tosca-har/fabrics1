@@ -5,6 +5,10 @@
   <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
   <link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
   <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/leaflet.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/map.css" %}">
+  <script src="{% static "fabrics2/leaflet.js"%}"></script>
+  <script src="{% static "fabrics2/map.js" %}"></script>
 {% endblock %}
 
 {% block page_title %}
@@ -15,6 +19,27 @@
   {% include "fabrics2/includes/header.html" %}
     <p> {{ query }} </p>
     <p> {{ query2 }} </p>
+    <div id="map"></div>
+    <p id="targetSite"></p>
+    <script> 
+      var picon = "{% static "fabrics2/images/brownPot.png" %}";
+      let siteNames = [];
+      let siteLat = [];
+      let siteLng = [];
+      let siteLinks = [];
+      let siteFabrics = [];
+      {% for site in sites %}
+        siteNames.push("{{site.name}}");
+        siteLat.push({{site.lat}});
+        siteLng.push({{site.lng}});
+        siteLinks.push("{% url "site-type" site.slug %}");
+        siteFabrics.push("")
+        {% comment %} siteFabrics.push("{{site.fabric_string}}") {% endcomment %}
+      {% endfor %}
+        getMap(); 
+      </script> 
+    <p>Many fabrics have a range of abundances. The range maximum (top) and minimum (bottom) are shown. </p>
+    <p>** Has full slide image available.</p> 
     {% include "fabrics2/includes/abuntable.html" %}
     <br>
     <table class = "fabrictable">
@@ -23,7 +48,7 @@
       <th>Garnet</th><th>Ig. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics/ Region</th>
       {% for fabric in fabrics %}
          <tr>
-            <td><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}</a></td>
+            <td><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}{% if fabric.has_full %} ** {% endif%} </a></td>
             <td data-tag="{{fabric.calcareous_max}}"> {{fabric.calcareous_max}}</td>
             <td data-tag="{{fabric.quartz_max}}"> {{fabric.quartz_max}}</td>
             <td data-tag="{{fabric.feldspar_max}}">{{fabric.feldspar_max}}</td>

@@ -2,15 +2,11 @@
 
 h1 {
     font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    margin: 2rem 0 1rem 0;
 }
+
 h2 {
     font-size: 2rem;
     text-align: left;
-    color: antiquewhite;
     font-weight: normal;
     margin: 2rem 2rem 1rem 2rem;
 }
@@ -22,28 +18,19 @@ h2 {
 }
 figcaption {
     font-size: 0.8rem;
-    color: rgb(127, 225, 255);
+    color: #f8e64f;
     font-style: italic;
 }
 
-a {
-    color: rgb(255, 127, 127);
-    text-decoration: none;
-}
-
-a:hover,
-a:active {
-    color: #3a87b1;
-}
 
 figcaption a {
-    color: rgb(255, 127, 127);
+    color:  #db7f3d;
     text-decoration: none;
 }
 
 figcaption a:hover,
 figcaption a:active {
-    color: #3a87b1;
+    color: #8e0101;
 }
 
 
@@ -89,7 +76,7 @@ figcaption a:active {
  
     text-align: center;
     background-color: #e35d30;
-    color: rgb(63, 62, 62);
+    color: white;
   }
   .slidetable [data-tag="3"] {
 
@@ -112,7 +99,7 @@ figcaption a:active {
   .slidetable [data-tag="0"] {
 
     text-align: center;
-    background-color: #ffffcf;
+    background-color: white;
     color: rgb(119, 116, 116);
   }
 

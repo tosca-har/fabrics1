@@ -27,7 +27,7 @@
  
     text-align: center;
     background-color: #e35d30;
-    color: rgb(63, 62, 62);
+    color: white;
   }
   .abuntable [data-tag="3"] {
 
@@ -50,6 +50,6 @@
   .abuntable [data-tag="0"] {
 
     text-align: center;
-    background-color: #ffffcf;
+    background-color: white;
     color: rgb(119, 116, 116);
   }

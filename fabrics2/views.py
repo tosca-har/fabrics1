@@ -11,7 +11,7 @@ ab = ["n", "m", "f", "C", "F", "M", "V"]
 def home(request):
     return render(request, "fabrics2/home.html")
 
-def index(request, order):
+def index(request, order, limited = 0):
     if order == 1:
         fabricsd = Fabric.objects.all().order_by("-calcareous_max", "-calcareous_min")
     elif order == 2:
@@ -43,16 +43,16 @@ def index(request, order):
     elif order == 15:
         fabricsd = Fabric.objects.all().order_by("lithics")
     elif order == 16:
-        fabricsd = Fabric.objects.all().order_by("region", "lithics")              
+        fabricsd = Fabric.objects.all().order_by("region", "desc")              
     else:
-        fabricsd = Fabric.objects.all().order_by("name")
+        fabricsd = Fabric.objects.all().order_by("desc")
     return render(request, "fabrics2/index.html", {
         "fabrics": fabricsd
     })
 
 
 def site_index(request):
-    sites = Site.objects.all()
+    sites = Site.objects.all().order_by("name")
     return render(request, "fabrics2/site-index.html", {
         "sites": sites
     })
@@ -75,7 +75,7 @@ def fabric(request, slug):
         "fabric": identified_fabric,
         "fabric_slides": id_fabrics,
         "fabric_references": identified_fabric.refs.all(),
-        "fabric_sites": Site.objects.all().filter(slides__in = id_fabrics).distinct(),
+        "fabric_sites": identified_fabric.sites.all(),
         "ab": ab
 
     })
@@ -91,11 +91,10 @@ def report(request, slug):
 def site(request, slug):
     identified_site = get_object_or_404(Site, slug=slug)
     site_slides = identified_site.slides.all()
-        # identified_fabric = Fabric.objects.get(slug=slug)
     return render(request, "fabrics2/site.html", {
         "site": identified_site,
         "site_slides": site_slides,
-        "site_fabrics": Fabric.objects.all().filter(slides__in = site_slides).distinct()
+        "site_fabrics": identified_site.fabrics.all()
     })
 
 def glossary(request):
@@ -107,7 +106,6 @@ def search(request):
         fabrics = Fabric.objects.all() 
         query = "Matching fabrics for"    
         if form.is_valid():
-            print(form.cleaned_data)
             val = form.cleaned_data.get("calcareous")
             if val > -1:
                 fabrics = fabrics.filter(calcareous_min__lte=val, calcareous_max__gte=val)
@@ -222,11 +220,14 @@ def search(request):
             query = query + "." 
             query2 = "Regions searched: " + ', '.join(val) + '.'
 
+            sites = Site.objects.all().filter(fabrics__in = fabrics).distinct()
+
             if len(fabrics) > 0:
                 return render(request, "fabrics2/results.html", {
                     "fabrics": fabrics,
                     "query": query,
                     "query2": query2,
+                    "sites": sites,
                 })
             else: return HttpResponseRedirect("no-match")
                 

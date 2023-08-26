@@ -13,7 +13,8 @@ p {
     font-size: 1rem;
     font-weight: normal;
     text-align: left;
-    color: #ffffcf;
+    /* color: antiquewhite; */
+    color: white;
     margin: 2rem 1rem 1rem 1rem;
 }
 
@@ -21,8 +22,11 @@ h1 {
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
-    color: #e35d30;
-    margin: 2rem 0 1rem 0;
+    color: #dbae3d;
+    margin: 2rem 10rem 1rem 10rem;
+    background-color: #2d2d2d; 
+    border-radius: 16px;
+    padding: 1.5rem;
 }
 h2 {
     font-size: 2rem;
@@ -30,4 +34,22 @@ h2 {
     color: #dbae3d;
     font-weight: normal;
     margin: 2rem 2rem 1rem 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-align: left;
+    color: #dbae3d;
+    font-weight: normal;
+    margin: 1rem 1rem 0rem 0rem;
+}
+
+a {
+    text-decoration: none;
+    color: #f8e64f
+}
+
+a:hover,
+a:active {
+  color:  #db7f3d;
 }
