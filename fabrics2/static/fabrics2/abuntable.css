@@ -2,6 +2,7 @@
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     max-width: 70rem;
+    margin: 2rem 2rem 1rem 1rem;
   }
 
   .abuntable td {
@@ -22,6 +23,7 @@
     text-align: center;
     background-color: #cd2f18;
     color: white;
+    
   }
   .abuntable [data-tag="4"] {
  

@@ -8,6 +8,9 @@ getMap = function () {
     let landscape = L.tileLayer(tfUrl, {maxZoom: 22, attribution: tfAttr});
     let streets = L.tileLayer(mbUrl, {tileSize: 512, zoomOffset: -1, attribution: mbAttr});
     let satellite = L.tileLayer(mbSUrl, {tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+    let sites = L.featureGroup();
+    let full = L.featureGroup();
+    let imag = L.featureGroup();
 
     var potIcon = L.icon({
         iconUrl: picon,
@@ -25,9 +28,9 @@ getMap = function () {
     });
         
     let map = L.map('map', {
-        center: [-4.5, 150],
+        center: mapcentre,
         zoom: 4,
-        layers: [landscape, streets, satellite]
+        layers: [streets, full, imag, sites]
     });
 
     let baseLayers = {
@@ -40,16 +43,36 @@ getMap = function () {
         sitename = siteNames[i];
         sitelink = siteLinks[i];
         complex = "<a href=" +sitelink+">"+sitename+ "</a>" + siteFabrics[i];
-        marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(map);
-    }  
-    var layerControl = L.control.layers(baseLayers).addTo(map);
+        if (siteColour[i] == 1) {
+            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(full);
+        } else if (siteColour[i] == 2) {
+            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconC, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(imag);
+        } else {
+            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconB, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(sites);
+ 
+        }
+        } 
+        let overlays = {}
+        
+        if (siteview) { 
+            overlays = {
+            'Has full slide': full,
+            'Has image': imag,
+            'No images': sites
+            }; 
+        } else {
+            overlays = {
+                'Selected': full
+                }; 
+        }
+        var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
    
   }
 
   function markerOnClick(e) {
     targetSite = this.options.title;
     targetLink = this.options.link;
-    document.getElementById("targetSite").innerHTML = "<a href=" +targetLink+">"+targetSite+ "</a>" ; 
+    document.getElementById("targetSite").innerHTML = "Site selected: <a href=" +targetLink+">"+targetSite+ "</a>." ; 
         
 }
 

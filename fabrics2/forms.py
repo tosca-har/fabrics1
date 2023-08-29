@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import Site
 
 
 mineral_choices = (
@@ -35,6 +35,17 @@ lithic_choices = (
     (False, "Absent"),
 )    
 
+
+def site_choices():
+    sites =  Site.objects.all().order_by("name")
+    sitelist =  tuple()
+    for site in sites:
+        sitelist += (
+        (site.name, site),   
+        ) 
+    return sitelist
+
+
 class SearchForm(forms.Form):
     calcareous = forms.TypedChoiceField(choices= mineral_choices, coerce = int)
     quartz = forms.TypedChoiceField(choices= mineral_choices, coerce = int)
@@ -66,3 +77,6 @@ class SearchForm(forms.Form):
 
     regions_to_include = forms.MultipleChoiceField(choices = region_choices, widget= forms.CheckboxSelectMultiple(attrs={"checked":""}), 
         error_messages= {"required": "Please select at least one region."})
+
+class SiteForm(forms.Form):
+    sites_to_include = forms.MultipleChoiceField(choices = site_choices, required =True, widget= forms.CheckboxSelectMultiple(attrs={"class": "siteboxes"}), error_messages= {"required": "Please select at least one site."})

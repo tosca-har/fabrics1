@@ -4,7 +4,7 @@ html {
     font-family: 'IBM Plex Sans', sans-serif;
 }
 body {
-    margin: 0rem 1rem 1rem 1rem;
+    margin: 0rem 0rem 0rem 0rem;
     background-color: #5f5c5c;;
 }
 
@@ -15,7 +15,7 @@ p {
     text-align: left;
     /* color: antiquewhite; */
     color: white;
-    margin: 2rem 1rem 1rem 1rem;
+    margin: 2rem 2rem 1rem 1rem;
 }
 
 h1 {
@@ -41,7 +41,7 @@ h3 {
     text-align: left;
     color: #dbae3d;
     font-weight: normal;
-    margin: 1rem 1rem 0rem 0rem;
+    margin: 1rem 2rem 0rem 0rem;
 }
 
 a {

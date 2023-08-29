@@ -20,24 +20,30 @@
     <p> {{ query }} </p>
     <p> {{ query2 }} </p>
     <div id="map"></div>
-    <p id="targetSite"></p>
+    <div> <p id="targetSite"></p><div>
     <script> 
-      var picon = "{% static "fabrics2/images/brownPot.png" %}";
+      var picon = "{% static "fabrics2/images/redPot2.png" %}";
+      var bicon = "{% static "fabrics2/images/ltgreyPot.png" %}";
+      var ricon = "{% static "fabrics2/images/tanPot.png" %}";
       let siteNames = [];
       let siteLat = [];
       let siteLng = [];
       let siteLinks = [];
       let siteFabrics = [];
+      let siteColour = [];
+      let siteview = false; 
+      let mapcentre =  [-4.5, 150];
       {% for site in sites %}
         siteNames.push("{{site.name}}");
         siteLat.push({{site.lat}});
         siteLng.push({{site.lng}});
         siteLinks.push("{% url "site-type" site.slug %}");
-        siteFabrics.push("")
-        {% comment %} siteFabrics.push("{{site.fabric_string}}") {% endcomment %}
+        siteFabrics.push("");
+        siteColour.push(1);
       {% endfor %}
         getMap(); 
       </script> 
+     <div class ="after-map">
     <p>Many fabrics have a range of abundances. The range maximum (top) and minimum (bottom) are shown. </p>
     <p>** Has full slide image available.</p> 
     {% include "fabrics2/includes/abuntable.html" %}
@@ -85,4 +91,6 @@
               </tr>
       {% endfor %}
     </table>
+  </div>
+  {% include "fabrics2/includes/footer.html" %}
 {% endblock %}

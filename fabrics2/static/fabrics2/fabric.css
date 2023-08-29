@@ -1,5 +1,22 @@
 
+#map { 
+  width: 1000px;
+  height: 400px;
+  margin: 2rem 2rem 1rem 1rem;
+  float: left;
+}
+.after-map {
+  clear: left;
+}
 
+#targetSite a {
+    color: #f8e64f;
+}
+
+#targetSite a:hover,
+#targetSite a:active {
+color: #e35d30;
+}
 h1 {
     font-size: 3rem;
 }
@@ -38,6 +55,7 @@ figcaption a:active {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin: 2rem 1rem 1rem 1rem;
   }
   
   .slidetable td, .fabrictable th {

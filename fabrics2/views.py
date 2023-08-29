@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from .models import Fabric, Site, Slide, Report
-from .forms import SearchForm
+from .forms import SearchForm, SiteForm
 
 
 abundances = ["None", "Minor","Few", "Common", "Frequent", "Major", "Very Dominant"]
@@ -51,11 +51,37 @@ def index(request, order, limited = 0):
     })
 
 
-def site_index(request):
+def site_indexB(request):
     sites = Site.objects.all().order_by("name")
     return render(request, "fabrics2/site-index.html", {
         "sites": sites
     })
+
+def site_index(request):
+    if request.method == 'POST':
+        form = SiteForm(request.POST) 
+        
+        if form.is_valid():
+            val = form.cleaned_data.get("sites_to_include") 
+            sites = Site.objects.all().filter(name__in=val)
+            fabrics = Fabric.objects.all().filter(sites__in=sites).distinct() 
+            slides = Slide.objects.all().filter(site__in=sites).distinct()   
+
+            return render(request, "fabrics2/mulisite.html", {
+                    "fabrics": fabrics,
+                    "slides": slides,
+                    "sites": sites,
+            })
+        else: return HttpResponseRedirect("no-match")
+    else:   
+        form = SiteForm()
+        sites = Site.objects.all().order_by("name")
+        return render(request, "fabrics2/site-index.html", {
+        "form": form,
+        "sites": sites
+    })
+ 
+
 
 def fabric_by_number(request, atpr):
     fabricsd = Fabric.objects.all()
