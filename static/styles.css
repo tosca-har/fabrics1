@@ -5,7 +5,8 @@ html {
 }
 body {
     margin: 0rem 0rem 0rem 0rem;
-    background-color: #5f5c5c;;
+    background-color: #5f5c5c;
+    color: white;
 }
 
 
@@ -41,7 +42,7 @@ h3 {
     text-align: left;
     color: #dbae3d;
     font-weight: normal;
-    margin: 1rem 2rem 0rem 0rem;
+    margin: 1rem 2rem 1rem 2rem;
 }
 
 a {
