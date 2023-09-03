@@ -1,5 +1,5 @@
 from django import forms
-from .models import Site
+from .models import Site, Fabric
 
 
 mineral_choices = (
@@ -13,21 +13,15 @@ mineral_choices = (
     (0, "None"),
 )
 
-region_choices= (
-    ("Australia", "Australia"),
-    ("Bismarck", "Bismarck"),
-    ("Carolines", "Carolines"),
-    ("Maluku", "Maluku"),
-    ("Marianas", "Marianas"),
-    ("Marquesas", "Marquesas"),
-    ("Philippines", "Philippines"),
-    ("PNG", "PNG"),
-    ("Solomons", "Solomons"),
-    ("Taiwan", "Taiwan"),
-    ("Tonga", "Tonga"),
-    ("Tuvalu", "Tuvalu"),
-    ("Vanuatu", "Vanuatu"),
-)
+def region_choices():
+    regions =  Fabric.objects.all()
+    regionlist =  tuple()
+    for region in regions:
+        regionlist += (
+        (region.region, region.region),   
+        ) 
+    return list(set([i for i in regionlist]))
+
 
 lithic_choices = (
     (None, "Unknown"),
