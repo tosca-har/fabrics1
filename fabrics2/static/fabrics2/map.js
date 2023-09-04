@@ -1,9 +1,11 @@
 getMap = function () {    
     let tfAttr = 'Maps &copy; <a href="https://www.thunderforest.com">Thunderforest</a>, Data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
     let mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
-    let tfUrl = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=886d35daaac64cee8d4f10017e008188';
-    let mbUrl = 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoidG9zY2FoYXJkeSIsImEiOiJja3lkeGpibHkwNmg1MnhwaDFodmxkZjZ5In0.UUhry4TtS7E16n4Y5ommsQ';
-    let mbSUrl = 'https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoidG9zY2FoYXJkeSIsImEiOiJja3lkeGpibHkwNmg1MnhwaDFodmxkZjZ5In0.UUhry4TtS7E16n4Y5ommsQ';
+    let tfUrl = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey='+ thsu;
+    let mbUrl = 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token='+ mbsu;
+    let mbSUrl = 'https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=' + mbsu;
+
+
 
     let landscape = L.tileLayer(tfUrl, {maxZoom: 22, attribution: tfAttr});
     let streets = L.tileLayer(mbUrl, {tileSize: 512, zoomOffset: -1, attribution: mbAttr});

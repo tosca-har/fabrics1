@@ -3,7 +3,13 @@ from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from .models import Fabric, Site, Slide, Report
 from .forms import SearchForm, SiteForm
+from environs import Env
 
+env = Env()
+env.read_env()
+
+mbsu = env.str("MBSU")
+thsu = env.str("THSU")
 
 abundances = ["None", "Minor","Few", "Common", "Frequent", "Major", "Very Dominant"]
 
@@ -51,11 +57,6 @@ def index(request, order, limited = 0):
     })
 
 
-def site_indexB(request):
-    sites = Site.objects.all().order_by("name")
-    return render(request, "fabrics2/site-index.html", {
-        "sites": sites
-    })
 
 def site_index(request):
     if request.method == 'POST':
@@ -72,6 +73,10 @@ def site_index(request):
                     "slides": slides,
                     "sites": sites,
                     "references": Report.objects.all().filter(slides__in=slides).distinct(),
+                    "mbsu": mbsu,
+                    "thsu":thsu
+  
+
             })
         else: return HttpResponseRedirect("no-match")
     else:   
@@ -79,7 +84,10 @@ def site_index(request):
         sites = Site.objects.all().order_by("name")
         return render(request, "fabrics2/site-index.html", {
         "form": form,
-        "sites": sites
+        "sites": sites,
+        "mbsu": mbsu,
+        "thsu": thsu
+  
     })
  
 
@@ -102,7 +110,9 @@ def fabric(request, slug):
         "fabric": identified_fabric,
         "fabric_slides": id_fabrics,
         "fabric_references": identified_fabric.refs.all(),
-        "fabric_sites": identified_fabric.sites.all()
+        "fabric_sites": identified_fabric.sites.all(),
+        "mbsu": mbsu,
+        "thsu":thsu
     })
 
 def report(request, slug):
@@ -122,7 +132,9 @@ def site(request, slug):
         "site": identified_site,
         "site_slides": site_slides,
         "site_fabrics": identified_site.fabrics.all(),
-        "site_references": Report.objects.all().filter(slides__in=site_slides).distinct()
+        "site_references": Report.objects.all().filter(slides__in=site_slides).distinct(),
+        "mbsu": mbsu,
+        "thsu":thsu
     })
 
 def glossary(request):
@@ -256,6 +268,8 @@ def search(request):
                     "query": query,
                     "query2": query2,
                     "sites": sites,
+                    "mbsu": mbsu,
+                    "thsu":thsu
                 })
             else: return HttpResponseRedirect("no-match")
                 
