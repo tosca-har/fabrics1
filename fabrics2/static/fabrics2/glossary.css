@@ -3,6 +3,10 @@ h1 {
     width: 50%;
     
 }
+
+p {
+    color: antiquewhite;
+}
 figcaption {
     font-size: 0.8rem;
     color: #f8e64f;

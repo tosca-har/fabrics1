@@ -5,7 +5,7 @@
   padding-top: 10rem;
   border-radius: 16px;
   /* background-color: #2d2d2d;  */
-  color: white;
+  color: antiquewhite;
 }
 #site-form {
   clear:left;
@@ -14,9 +14,10 @@
   padding: 1rem;
   border-radius: 16px;
   background-color: #2d2d2d; 
+  color: antiquewhite
 }
 .siteboxes {
-  color: white;
+  color: antiquewhite;
   column-count: 6;
   padding-top: .1rem;
   padding-bottom: .1rem;
@@ -44,7 +45,7 @@ h2 {
 } 
 
 .fabrictable td {
-color: antiquewhite;
+color: white;
 }
 .fabrictable th {
   padding-top: 12px;
@@ -126,13 +127,10 @@ li{
 
 }
 
-li:last-of-type {
-  border-bottom: none;
-}
 
 li a {
 text-decoration: none;
-color:  white;
+color:  antiquewhite;
 }
 
 li a:hover,

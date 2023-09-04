@@ -19,7 +19,10 @@
 {% for fabric in report_fabrics %}
 <li><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}</a> {{fabric.desc}} </li>
 {% endfor %}
-
+<h2>Sites: </h2>
+{% for site in report_sites %}
+<li><a href="{% url "site-type" site.slug %}">{{ site }}</a> </li>
+{% endfor %}
 <h2>Slides: </h2>
 {% for slide in report_slides %}
     <h3>{{slide.name }}</h3>
@@ -42,5 +45,7 @@
      <p>No images available.</p>
     {% endif%}
 {% endfor %}
+
+
 {% include "fabrics2/includes/footer.html" %}
 {% endblock %}

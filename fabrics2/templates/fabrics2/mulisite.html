@@ -159,5 +159,9 @@
     {% else %}
       <p>No representative slide details available.</p>
     {% endif%} 
+    <h2>References:</h2>
+  {% for ref in references %}
+    <h3> <a href="{% url "report-type" ref.slug %}">{{ ref.fullname }}</a> ({{ ref.author_list }}) </h3>
+  {% endfor %}
     {% include "fabrics2/includes/footer.html" %}
     {% endblock %}

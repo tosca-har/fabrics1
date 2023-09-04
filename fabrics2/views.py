@@ -6,7 +6,7 @@ from .forms import SearchForm, SiteForm
 
 
 abundances = ["None", "Minor","Few", "Common", "Frequent", "Major", "Very Dominant"]
-ab = ["n", "m", "f", "C", "F", "M", "V"]
+
 
 def home(request):
     return render(request, "fabrics2/home.html")
@@ -71,6 +71,7 @@ def site_index(request):
                     "fabrics": fabrics,
                     "slides": slides,
                     "sites": sites,
+                    "references": Report.objects.all().filter(slides__in=slides).distinct(),
             })
         else: return HttpResponseRedirect("no-match")
     else:   
@@ -101,17 +102,17 @@ def fabric(request, slug):
         "fabric": identified_fabric,
         "fabric_slides": id_fabrics,
         "fabric_references": identified_fabric.refs.all(),
-        "fabric_sites": identified_fabric.sites.all(),
-        "ab": ab
-
+        "fabric_sites": identified_fabric.sites.all()
     })
 
 def report(request, slug):
     identified_report = get_object_or_404(Report, slug=slug)
+    id_fabrics = identified_report.fabrics.all()
     return render(request, "fabrics2/report.html", {
         "report": identified_report,
         "report_slides": identified_report.slides.all(),
-        "report_fabrics": identified_report.fabrics.all()
+        "report_fabrics": id_fabrics,
+        "report_sites": Site.objects.all().filter(fabrics__in=id_fabrics).distinct()
     })
 
 def site(request, slug):
@@ -120,7 +121,8 @@ def site(request, slug):
     return render(request, "fabrics2/site.html", {
         "site": identified_site,
         "site_slides": site_slides,
-        "site_fabrics": identified_site.fabrics.all()
+        "site_fabrics": identified_site.fabrics.all(),
+        "site_references": Report.objects.all().filter(slides__in=site_slides).distinct()
     })
 
 def glossary(request):

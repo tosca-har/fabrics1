@@ -16,7 +16,7 @@
 <h1>Fabric Code: {{ fabric.slug }}</h1>
 
   <h2>{{ fabric.desc }}</h2>
-  <h3>{{ fabric.comments }}</h3>  
+  <h3 id="des">{{ fabric.comments }}</h3>  
   <h2>Sites: </h2>
   {% if fabric_sites %} 
     <div id="map"></div>
@@ -152,9 +152,9 @@
   {% else %}
     <p>No representative slide details available.</p>
   {% endif%} 
-  <h2>Refs: </h2>
+  <h2>References:</h2>
   {% for ref in fabric_references %}
-    <h3> <a href="{% url "report-type" ref.slug %}">{{ ref.fullname }}</a>, ({{ ref.author_list }}) </h3>
+    <h3> <a href="{% url "report-type" ref.slug %}">{{ ref.fullname }}</a> ({{ ref.author_list }}) </h3>
   {% endfor %}
 
 

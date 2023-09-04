@@ -6,7 +6,7 @@ html {
 body {
     margin: 0rem 0rem 0rem 0rem;
     background-color: #5f5c5c;
-    color: white;
+    color: antiquewhite;
 }
 
 
@@ -14,8 +14,7 @@ p {
     font-size: 1rem;
     font-weight: normal;
     text-align: left;
-    /* color: antiquewhite; */
-    color: white;
+    color: antiquewhite;
     margin: 2rem 2rem 1rem 1rem;
 }
 
