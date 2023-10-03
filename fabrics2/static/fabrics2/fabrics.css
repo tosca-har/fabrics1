@@ -5,7 +5,7 @@
   padding-top: 10rem;
   border-radius: 16px;
   /* background-color: #2d2d2d;  */
-  color: antiquewhite;
+  color: #f1eeee;
 }
 #site-form {
   clear:left;
@@ -14,10 +14,10 @@
   padding: 1rem;
   border-radius: 16px;
   background-color: #2d2d2d; 
-  color: antiquewhite
+  color: #f1eeee
 }
 .siteboxes {
-  color: antiquewhite;
+  color: #f1eeee;
   column-count: 6;
   padding-top: .1rem;
   padding-bottom: .1rem;
@@ -110,7 +110,7 @@ ul {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 100rem;
+  height: 150rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.26);
   padding: 1rem;
   border-radius: 16px;
@@ -130,7 +130,7 @@ li{
 
 li a {
 text-decoration: none;
-color:  antiquewhite;
+color:  #f1eeee;
 }
 
 li a:hover,

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+  <!-- <link rel="stylesheet" href="{% static "pottery/fabrics.css" %}">
+   -->
+  <link rel="stylesheet" href="{% static "pottery/header.css" %}"> 
+  {% endblock %}
+
+{% block page_title %}
+  Pottery Home
+{% endblock %}
+
+{% block content %}
+{% include "pottery/includes/header.html" %}
+  <h1>Pottery Database</h1>
+{% include "pottery/includes/footer.html" %}
+{% endblock %}

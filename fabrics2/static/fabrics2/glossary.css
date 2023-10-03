@@ -5,7 +5,7 @@ h1 {
 }
 
 p {
-    color: antiquewhite;
+    color: #f1eeee;
 }
 figcaption {
     font-size: 0.8rem;
@@ -64,4 +64,10 @@ ol {
     padding: 1rem;
     border-radius: 16px;
     background-color: #f1eeee; 
+}
+
+mark {
+    background-color: transparent;
+    color: inherit;
+    font-style: italic;
 }

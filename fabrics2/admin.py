@@ -28,3 +28,4 @@ class ReportAdmin(admin.ModelAdmin):
     ordering = ('name',)
     
 admin.site.register(Report, ReportAdmin)
+

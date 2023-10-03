@@ -1,0 +1,11 @@
+{% load static %}
+<header>
+ 
+  <nav>
+    <img src="{% static "images/Kuden_pots.jpg" %}" alt="kuden_logo" height="100"> &emsp; &emsp; &emsp;
+    <a href="{% url "pothome" %}">Home</a> &emsp; &emsp; &emsp;
+    <a href="{% url "potindex" 0 %}">All Industries</a> &emsp; &emsp; &emsp;
+    {% comment %} <a href="{% url "search" %}">Fabric Search</a> &emsp; &emsp; &emsp; {% endcomment %}
+    {% comment %} <a href="{% url "site-index" %}">All Sites</a> &emsp; &emsp; &emsp; {% endcomment %}
+  </nav>
+</header>
