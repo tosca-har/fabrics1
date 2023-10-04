@@ -63,7 +63,7 @@ class Industry(models.Model):
     use_ceremonial = models.BooleanField(default=False)
     use_serving = models.BooleanField(default=False)
     comments = models.CharField(null=True, max_length=500, blank =True)
-    language_family = models.CharField(null=True, max_length=100, blank =True)
+    language_family = models.CharField(null=True, max_length=500, blank =True)
     language_superfamily = models.CharField(null=True, max_length=100, blank =True)
     gender = models.CharField(max_length=7, choices=GENDER, default="U")
     temper = models.BooleanField(null = True, blank = True)

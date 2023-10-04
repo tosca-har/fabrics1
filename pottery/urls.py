@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path("home", views.home, name="pothome"),
     path("index<int:order>", views.index, name="potindex"),
-    # path("sites", views.site_index, name="site-index"),
+    path("sites", views.site_index, name="potsite-index"),
     # path("search", views.search, name="search"),
     # path("<int:tpr>", views.fabric_by_number),
     # path("glossary", views.glossary, name="glossary"),

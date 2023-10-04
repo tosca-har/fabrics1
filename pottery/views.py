@@ -79,3 +79,12 @@ def industry(request, slug):
         "mbsu": mbsu,
         "thsu":thsu
     })
+
+def site_index(request):
+    sites = Area.objects.all().order_by("name")
+    return render(request, "pottery/site-index.html", {
+        "sites": sites,
+        "mbsu": mbsu,
+        "thsu": thsu
+  
+    })

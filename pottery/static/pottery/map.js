@@ -10,9 +10,18 @@ getMap = function () {
     let landscape = L.tileLayer(tfUrl, {maxZoom: 22, attribution: tfAttr});
     let streets = L.tileLayer(mbUrl, {tileSize: 512, zoomOffset: -1, attribution: mbAttr});
     let satellite = L.tileLayer(mbSUrl, {tileSize: 512, zoomOffset: -1, attribution: mbAttr});
-    let sites = L.featureGroup();
-    let full = L.featureGroup();
-    let imag = L.featureGroup();
+    let u = L.featureGroup();
+    let s = L.featureGroup();
+    let sb = L.featureGroup();
+    let pa = L.featureGroup();
+    let sr = L.featureGroup();
+    let srb = L.featureGroup();
+    let pr = L.featureGroup();
+    let lbu = L.featureGroup();
+    let po = L.featureGroup();
+    let rg = L.featureGroup();
+    let pc = L.featureGroup();
+    let sbu = L.featureGroup();
 
     var potIcon = L.icon({
         iconUrl: picon,
@@ -32,7 +41,7 @@ getMap = function () {
     let map = L.map('map', {
         center: mapcentre,
         zoom: 4,
-        layers: [streets, full, imag, sites]
+        layers: [streets, u, s, sb, srb, sr, sbu, pr, lbu, pa, po, pc, rg]
     });
 
     let baseLayers = {
@@ -43,38 +52,40 @@ getMap = function () {
 
     for (var i = 0; i < siteNames.length; i += 1) {
         sitename = siteNames[i];
-        sitelink = siteLinks[i];
-        complex = "<a href=" +sitelink+">"+sitename+ "</a>" + siteFabrics[i];
-        if (siteColour[i] == 1) {
-            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(full);
-        } else if (siteColour[i] == 2) {
-            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconC, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(imag);
-        } else {
-            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconB, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(sites);
- 
-        }
+        // sitelink = siteLinks[i];
+        // complex = "<a href=" +sitelink+">"+sitename+ "</a>" + siteFabrics[i];
+        complex = sitename;
+        // if (siteColour[i] == 1) {
+            // marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename}).addTo(u);
+            // marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(full);
+        // } else if (siteColour[i] == 2) {
+            // marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconC, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(s);
+        // }  else {
+            // marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconB, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(sb);
+            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename}).bindPopup(complex).addTo(u);
+        // }
         } 
         let overlays = {}
         
         if (siteview) { 
             overlays = {
-            'Has full slide': full,
-            'Has image': imag,
-            'No images': sites
+            'Unknown': u,
+            'Spiral': s,
+            'PA': pa
             }; 
         } else {
             overlays = {
-                'Selected': full
+                'Selected': u
                 }; 
         }
         var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
    
   }
 
-  function markerOnClick(e) {
-    targetSite = this.options.title;
-    targetLink = this.options.link;
-    document.getElementById("targetSite").innerHTML = "Site selected: <a href=" +targetLink+">"+targetSite+ "</a>." ; 
+//   function markerOnClick(e) {
+//     targetSite = this.options.title;
+//     targetLink = this.options.link;
+//     document.getElementById("targetSite").innerHTML = "Site selected: <a href=" +targetLink+">"+targetSite+ "</a>." ; 
         
-}
+// }
 
