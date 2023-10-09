@@ -54,7 +54,7 @@ getMap = function () {
         sitename = siteNames[i];
         // sitelink = siteLinks[i];
         // complex = "<a href=" +sitelink+">"+sitename+ "</a>" + siteFabrics[i];
-        complex = sitename;
+        complex = sitename + " " + siteFabrics[i];
         // if (siteColour[i] == 1) {
             // marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename}).addTo(u);
             // marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(full);

@@ -113,6 +113,6 @@ class Area(models.Model):
         fabs = self.industry.all()
         fabstring = ''
         for fab in fabs:
-            fabstring = fabstring + " (" + fab.name + " " + fab.time + ")"
+            fabstring = fabstring + " (" + fab.name + " " + str(fab.time_start) + "BP-" + str(fab.time_end) + "BP)"
         return fabstring
     

@@ -45,7 +45,7 @@
       siteLat.push({{site.lat}});
       siteLng.push({{site.lng}});
       {% comment %} siteLinks.push("{% url "site" site.slug %}"); {% endcomment %}
-      {% comment %} siteFabrics.push("{{site.fabric_string}}"); {% endcomment %}
+      siteFabrics.push("{{site.fabric_string}}"); 
 {% comment %}       {% if site.has_full %} siteColour.push(1);
       {% elif site.has_image %} siteColour.push(2);
       {% else %} siteColour.push(0);
