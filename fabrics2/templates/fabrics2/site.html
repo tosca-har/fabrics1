@@ -45,7 +45,7 @@
 <table class = "fabrictable">
   <th>Name </th> <th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
   <th>Opaques</th> <th>Olivine</th><th>Biotite</th> <th>Muscovite</th> <th>Epidote</th> 
-  <th>Garnet</th><th>Ig. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics/ Region</th>
+  <th>Garnet/ Spinel</th><th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics/ Region</th>
   {% for fabric in site_fabrics %}
      <tr>
         <td><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}</a></td>
@@ -91,7 +91,7 @@
   <table class = "slidetable">
     <th>Slide </th> <th>Fabric</th> <th>Origin</th><th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
     <th>Opaques</th> <th>Olivine</th><th>Biotite</th> <th>Muscovite</th> <th>Epidote</th> 
-    <th>Garnet</th> <th>Ig. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics</th>
+    <th>Garnet/ Spinel</th> <th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics</th>
   {% for slide in site_slides %}
     <tr>
     <td>{{slide.name}}</td>

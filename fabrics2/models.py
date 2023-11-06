@@ -59,6 +59,7 @@ class Fabric(models.Model):
     lathwork = models.BooleanField(default=False)
     metavolcanic = models.BooleanField(default=False)
     plutonite = models.BooleanField(default=False)
+    amphibolite = models.BooleanField(default=False)
     tectonite = models.BooleanField(default=False)
     argillitic = models.BooleanField(default=False)
     chert = models.BooleanField(default=False)
