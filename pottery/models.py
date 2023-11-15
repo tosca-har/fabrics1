@@ -97,6 +97,8 @@ class Area(models.Model):
     lat = models.DecimalField(null=True, max_digits=9, decimal_places=6) 
     lng = models.DecimalField(null=True, max_digits=9, decimal_places=6)
     industry = models.ManyToManyField(Industry, related_name="area", blank=True)
+    geonames_id = models.IntegerField(null=True, blank=True)
+    open_location_code = models.CharField(null=True, blank=True, max_length=100)
    
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

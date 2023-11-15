@@ -84,6 +84,8 @@ class Site(models.Model):
     island = models.CharField(max_length= 20, null=True)
     lat = models.DecimalField(null=True, max_digits=9, decimal_places=6) 
     lng = models.DecimalField(null=True, max_digits=9, decimal_places=6)
+    geonames_id = models.IntegerField(null=True, blank=True)
+    open_location_code = models.CharField(null=True, blank=True, max_length=100)
     fabrics = models.ManyToManyField(Fabric, related_name="sites", blank=True)
     has_full = models.BooleanField(default=False) 
     has_image = models.BooleanField(default=False) 
