@@ -23,7 +23,7 @@
       <th>Name </th> <th><a href="{% url "index" 1 %}">Cal.</a></th> <th><a href="{% url "index" 2 %}">Quartz</a></th><th><a href="{% url "index" 3 %}">Felsp.</a></th>
        <th><a href="{% url "index" 4 %}">Pyroxene</a></th> <th><a href="{% url "index" 5 %}">Amphibole</a></th> 
       <th><a href="{% url "index" 6 %}">Opaques</a></th> <th><a href="{% url "index" 7 %}">Olivines</a></th><th><a href="{% url "index" 8 %}">Biotite</a></th> <th><a href="{% url "index" 9 %}">Muscovite</a></th> <th><a href="{% url "index" 10 %}">Epidote</a></th> 
-      <th><a href="{% url "index" 11 %}">Garnet</a></th><th><a href="{% url "index" 12 %}">Ig./Met. Rocks</a></th> <th><a href="{% url "index" 13 %}">Sed. Rocks</a></th> <th><a href="{% url "index" 14 %}">Grog</a></th>  <th><a href="{% url "index" 15 %}">Lithics</a>/ <a href="{% url "index" 16 %}">Region</a></th> 
+      <th><a href="{% url "index" 11 %}">Garnet/ Spinel</a></th><th><a href="{% url "index" 12 %}">Ig./Met. Rocks</a></th> <th><a href="{% url "index" 13 %}">Sed. Rocks</a></th> <th><a href="{% url "index" 14 %}">Grog</a></th>  <th><a href="{% url "index" 15 %}">Lithics</a>/ <a href="{% url "index" 16 %}">Region</a></th> 
       {% for fabric in fabrics %}
          <tr>
             <td><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}{% if fabric.has_full %} ** {% endif%} </a></td>
