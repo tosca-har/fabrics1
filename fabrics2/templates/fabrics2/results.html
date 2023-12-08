@@ -53,7 +53,7 @@
     <table class = "fabrictable">
       <th>Name </th> <th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
       <th>Opaques</th> <th>Olivine</th><th>Biotite</th> <th>Muscovite</th> <th>Epidote</th> 
-      <th>Garnet/ Spinel</th><th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics/ Region</th>
+      <th>Garnet</th><th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics/ Region</th>
       {% for fabric in fabrics %}
          <tr>
             <td><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}{% if fabric.has_full %} ** {% endif%} </a></td>
