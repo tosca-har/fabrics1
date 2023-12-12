@@ -3,6 +3,10 @@ h1 {
     width: 50%;
     
 }
+h2 h3 {
+    margin-top: 500%;
+    margin-bottom: 200%;
+} 
 
 p {
     color: #f1eeee;

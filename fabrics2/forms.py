@@ -61,7 +61,6 @@ class SearchForm(forms.Form):
     microphaneritic = forms.ChoiceField(choices= lithic_choices, required = False)
     lathwork = forms.ChoiceField(choices= lithic_choices, required = False)
     metavolcanic = forms.ChoiceField(choices= lithic_choices, required = False)
-    amphibolite = forms.ChoiceField(choices= lithic_choices, required = False)
     plutonite = forms.ChoiceField(choices= lithic_choices, required = False)
     tectonite = forms.ChoiceField(choices= lithic_choices, required = False)
     argillitic = forms.ChoiceField(choices= lithic_choices, required = False)
