@@ -1,22 +1,25 @@
 h1 {
     margin: auto;
-    width: 50%;
-    
+    width: 50%; 
 }
-h2 h3 {
-    margin-top: 500%;
-    margin-bottom: 200%;
-} 
-
+.linked {
+    margin-left: 3rem;
+}
 p {
     color: #f1eeee;
 }
 figcaption {
     font-size: 0.8rem;
     color: #f8e64f;
+    
     font-style: italic;
 }
-
+a {
+    color:  #db7f3d;
+}
+a:hover {
+    color: #8e0101;
+}
 
 figcaption a {
     color:  #db7f3d;
@@ -74,6 +77,6 @@ ol {
 
 mark {
     background-color: transparent;
-    color: inherit;
+    color: #ccc;
     font-style: italic;
 }
