@@ -22,7 +22,7 @@
     <div class="form-control">
         {{ form.regions_to_include.errors}}
     <h2>Mineral and rock abundances</h2>
-
+<p>Click on mineral or rock names for glossary link.</p>
     {% include "fabrics2/includes/abuntable.html" %}
     <br>  
     <br>  
@@ -51,6 +51,7 @@
       </div>
     <div class="form-control">
     <h2>Rock types</h2>
+    <p>Rock type identification can be very subjective. Use as a guide only.</p>
     <a href="{% url "glossary" %}#vit">Vitric</a> {{ form.vitric }} &emsp;
     <a href="{% url "glossary" %}#fes">Felsitic</a> {{ form.felsitic }} &emsp;
     <a href="{% url "glossary" %}#mic">Microlitic</a> {{ form.microlitic }} &emsp;
