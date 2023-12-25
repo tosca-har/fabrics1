@@ -25,12 +25,27 @@
   <p>You can also use the 'Sites' tab to look at what fabrics are present at what locations. Locations refers to where the sherds were found and not necessarily where they were made. The 2 forms below the map, allow you to investigate individual sites, or collections of sites.</p>
     <h2>How to use Vimipo (Virtual Microscope for Pottery)</h2>
   <p>Vimipo is an <a http="https://www.openmicroscopy.org/omero/">Open Microscopy Environment Remote Objects (OMERO)</a> implementation, it holds our database of images, including those made with the Zeiss AxioscanZ1. You will need to sign in as user:Guest pwd:Guest. 
- If you reach Vimipo from a link here you will be taken straight to the viewer for that image. </p>
- <p>If you are viewing a whole slide image, you can turn the filters shown off and on by the clicking the Red, Green and Blue buttons that match that filter. Remember to click the previous filter off (Red, Green and Blue buttons). You can change the brightness of the image by adjusting the sliders, its strongly advisable to use the same value for the Red, Green and Blue channels. A few slides have an extra scan for PPL on 'over exposed' settings and if present this scan should be  below the selected one in the thumbnail panel on the left.</p>  
+ If you reach Vimipo from a link here you will be taken straight to the viewer for that image.</p>
+ <p>If you are viewing a whole slide image, you can turn the filters shown off and on by the clicking the Red, Green and Blue buttons that match that filter. 
+  Remember to click the previous filter off (Red, Green and Blue buttons). You can change the brightness of the image by adjusting the sliders, its strongly advisable to use the same value for the Red, Green and Blue channels. 
+  A few slides have an extra scan for PPL on 'over exposed' settings and if present this scan should be  below the selected one in the thumbnail panel on the left.</p>  
+ <figure id="full"><img src="{% static "fabrics2/images/RGB.png" %}" alt=Changing channels in Vimipo height:"20">
+  <figcaption> Changing to XPL, and adjusting brightness for full slides in Vimipo.</figcaption> </figure>
+
  <p>If you are viewing a partial slide image, you can see the XPL version by using the vertical slider on the left. The XPL image will be at the bottom, some image stacks have a middle image which will show the PPL or XPL at a different brightness.</p>  
- <p>If you are viewing a partial slide image, you may be able to find other photos of the same sample by clicking on the thumbnails on the left, their names should indicate if they are the same slide.</p>  
-<p>To see more information on the slide, go to 'Info' and click on the Image ID number, this should open the main site. If going to the main site directly you may need to change the user (red and grey people icon near the top left) to public-data > All Members. </p>
+ <figure id="part"><img src="{% static "fabrics2/images/XPL.png" %}" alt=Changing channels in Vimipo height:"20">
+  <figcaption> Changing to XPL, for partial slides in Vimipo.</figcaption> </figure>
+ <p>If you are viewing a partial slide image, you may be able to find other photos of the same sample by clicking on the thumbnails on the left, their names should indicate if they are the same slide.</p>   
+<p>To see more information on the slide, go to 'Info' and click on the Image ID number, this should open the main site.</p>
+<figure id="info"><img src="{% static "fabrics2/images/info.png" %}" alt=getting more info height:"20">
+  <figcaption> To get more information on slide scan, in Vimipo.</figcaption> </figure>
+<p> If going to the main site directly you may need to change the user (red and grey people icon near the top left) to public-data > All Members. </p>
+<figure id="allmem"><img src="{% static "fabrics2/images/allMembers.png" %}" alt=all_members_vimipo height:"20">
+  <figcaption> Go to 'public-data > All Members' in Vimipo.</figcaption> </figure>
+</figure>
 <p>In the main site you can filter the images or full slides by key-value pairs, but you first have to select the folder you wish to search. Then you can 'Add Filter' and filter by keys such as slide id or mineral abundance. </p>
+<figure id="key"><img src="{% static "fabrics2/images/filter2.png" %}" alt=filtering_by_key_vimipo height:"20">
+  <figcaption> Filtering by key value pair in Vimipo.</figcaption> </figure>
 <h2>Finding the extinction angle in Vimipo</h2>
 <p>For the full slide scans, the <a href="{% url "glossary" %}#ext">extinction angle</a> of mineral grains can be estimated.</p>
 <p>First determine the angle of the mineral or its cleavage plane. This must be relative to the nearest vertical or horizontal axis in an anti-clockwise direction.</p>
