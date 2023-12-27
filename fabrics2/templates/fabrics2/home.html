@@ -49,13 +49,16 @@
 <h2>Finding the extinction angle in Vimipo</h2>
 <p>For the full slide scans, the <a href="{% url "glossary" %}#ext">extinction angle</a> of mineral grains can be estimated.</p>
 <p>First determine the angle of the mineral or its cleavage plane. This must be relative to the nearest vertical or horizontal axis in an clockwise direction.</p>
-<p>Start at the image channel that most closely matches the angle, ie start at POL_45 if the angle was 50&deg. </p>
+<figure id="ali"><img src="{% static "fabrics2/images/alignment.jpg" %}" alt=finding alignment angle height:"20">
+  <figcaption> Finding the angle of the cleavage plane relative to the nearest axis. The three minerals of interest, from the left have angles of 15&deg, 60&deg and about 70&deg.</figcaption> </figure>
+<p>Start at the image channel that most closely matches the angle, ie start at POL_75 if the angle was 70&deg. </p>
 <p>If the mineral is black at the start image then the extinction angle is 0&deg.</p>
-<p>If the mineral of interest is not black, check the next image channel (ie POL_60), then the next (ie POL_75), then the next (ie POL). Until 'extinction' occurs.
-  If extinction does not occur within 3 channel changes, go back to the start image and go the other way, (ie POL_30, then POL_15). </p>
+<p>If the mineral of interest is not black, check the next image channel (ie POL), then the next (ie POL_15), then the next (ie POL_30). Until 'extinction' occurs.
+  If extinction does not occur within 3 channel changes, go back to the start image and go the other way, (ie POL_60, then POL_45). </p>
   <p>Each channel is 15&deg, so if extinction occurs after 2 channel changes, the extinction angle is 30&deg.</p>
-  <p>You may with to keep the origin angle offset in mind, ie if the measurement was 50&deg, and you started at POL_45, then subtract or may want to subtract 5&deg.</p>
-
+  <p>You may with to keep the origin angle offset in mind, ie if the measurement was 70&deg, and you started at POL_75, then subtract or may want to subtract 5&deg.</p>
+  <figure id="exti"><img src="{% static "fabrics2/images/extinction.jpg" %}" alt=finding extinction angle height:"20">
+    <figcaption> The three minerals of interest, from the left go extinct at POL_60, POL and POL_45, giving extinction angles of around 45&deg, 30&deg and 25&deg.</figcaption> </figure>
   <h2 id="abu">Mineral Abundances</h2>
   <p>There are different approaches to classifiying inclusion abundance in fabrics. Kuden characterises mineral and rock abundances by their percentage of the total inclusions, using counts. The values are generally those reported by the publication author (predominantly William Dickinson). However, while Dickinson often reported the
     proportions as a percent of the non-calcareous grains, everything has been standardised to be as a percent of the total. The percentages are from inclusion counts and do not reflect the size of the inclusion (i.e. a large feldspar grain could have been counted with the same consideration as a smaller opaque grain). Depending on your search aims, it may be 
