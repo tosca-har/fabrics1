@@ -99,7 +99,7 @@
   <h2>Representative slides: </h2>
   {% if fabric_slides %}
     <table class = "slidetable">
-      <th>Slide </th> <th>Site</th> <th>Origin</th><th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
+      <th>Slide </th> <th>Site</th> <th>Possible Origin</th><th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
       <th>Opaques</th> <th>Olivine</th><th>Biotite</th> <th>Muscovite</th> <th>Epidote</th> 
       <th>Garnet/ Spinel</th> <th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics</th>
     {% for slide in fabric_slides %}
@@ -131,17 +131,17 @@
         <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
           <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
           <figcaption> Sherd {{ slide.sherd }} from {{ slide.site|title }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image</a> 
-           or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">full slide in VIMIPO.</a> Imaged by K. Hardy and M. Leclerc, ANU 2022.
+           or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">full slide in VIMIPO.</a> Imaged by K. Hardy and M. Leclerc, ANU.
           </figcaption>
         </figure>
       {% elif slide.image_name %}
         <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
           <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
-          <figcaption> Sherd {{ slide.sherd }} from {{ slide.site|title }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image in VIMIPO.</a> Imaged by K. Hardy and M. Leclerc, ANU 2022.
+          <figcaption> Sherd {{ slide.sherd }} from {{ slide.site|title }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image in VIMIPO.</a> Imaged by K. Hardy and M. Leclerc, ANU.
           </figcaption>
         </figure>
       {% elif slide.full_image_name %}
-       <p> <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">{{ slide.sherd }} has a full slide scan available.</a> Imaged by K. Hardy and M. Leclerc, ANU 2022.</p>
+       <p> <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">{{ slide.sherd }} has a full slide scan available.</a> Imaged by K. Hardy and M. Leclerc, ANU.</p>
       {% else %}
       <p>No images available.</p>
       {% endif%}
