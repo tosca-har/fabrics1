@@ -45,12 +45,12 @@ getMap = function () {
         sitename = siteNames[i];
         sitelink = siteLinks[i];
         complex = "<a href=" +sitelink+">"+sitename+ "</a>" + siteFabrics[i];
-        if (siteColour[i] == 1) {
-            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(full);
+        if (siteColour[i] == 0) {
+            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconB, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(sites);
         } else if (siteColour[i] == 2) {
             marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconC, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(imag);
         } else {
-            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIconB, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(sites);
+            marker = L.marker([siteLat[i],siteLng[i]],{icon: potIcon, title: sitename, link: sitelink}).bindPopup(complex).on("click", markerOnClick).addTo(full);
  
         }
         } 
