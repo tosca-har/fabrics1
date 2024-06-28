@@ -76,7 +76,7 @@ figcaption a:active {
   .slidetable th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #acaead;
     color: rgb(73, 72, 72);
     border: 1px solid #ddd;
