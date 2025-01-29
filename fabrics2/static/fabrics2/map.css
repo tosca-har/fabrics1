@@ -6,7 +6,9 @@
     margin: 2rem 2rem 1rem 2rem;
     float: left;
 }
-
+.key p {
+    font-size: 1.5rem;
+}
 #targetSite a {
     color: #f8e64f;
 }
