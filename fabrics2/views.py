@@ -15,7 +15,7 @@ abundances = ["None", "Minor","Few", "Common", "Frequent", "Major", "Very Domina
 
 
 def home(request):
-    return render(request, "fabrics2/home.html")
+    return render(request, "fabrics2/home2.html")
 
 def index(request, order, limited = 0):
     if order == 1:
