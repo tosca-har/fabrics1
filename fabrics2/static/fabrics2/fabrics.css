@@ -124,7 +124,6 @@ li{
   font-size: 1.rem;
   border-bottom: 1px solid white;
   padding-bottom: 1rem;
-
 }
 
 
@@ -137,6 +136,62 @@ li a:hover,
 li a:active {
 color: #e35d30;
 }
+
+.site {
+  clear: left;
+}
+.site ul {
+  height: auto; 
+  font-size: 1.8rem;
+  width: 80%;
+  margin: 0rem 0rem 0.2rem 2rem;
+  padding-left: 1rem; 
+  padding-bottom: 1px;
+  line-height: 1.5; 
+}
+
+.insites {
+  clear: none;
+}
+.insites ul {
+  list-style: none;
+  margin: 0rem 0rem 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+  padding: 0rem;
+  border-radius: 16px;
+  background-color: #2d2d2d; 
+  font-size: 1.5rem; 
+  line-height: 1.5; 
+}
+.site li{
+  margin: 0rem 0;
+  text-align: left;
+  border-bottom: none; 
+  padding-bottom: 0rem; 
+  padding-top: 0rem;
+
+}
+.insites li{
+  margin: 0rem 0;
+  text-align: left;
+  font-size: 1.rem;
+  border-bottom: none; 
+  padding-bottom: 0rem; 
+}
+.site li a {
+text-decoration: none;
+color:  #f1eeee;
+}
+
+.site li a:hover,
+.site li a:active {
+color: #e35d30;
+}
+
 
 figcaption {
   font-size: 0.8rem;

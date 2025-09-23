@@ -16,7 +16,14 @@
 
 <h1>Site: {{ site.name }}</h1>
 
-<h2>Island: {{ site.island }}</h2>
+<h2>Island: {{ site.island }} &emsp; &emsp; &emsp; Lithology: {{ site.island_type }} ( <a href="https://geoscienceletters.springeropen.com/articles/10.1186/s40562-016-0041-8" target="_blank">Nunn et al. (2016)</a> )</h2>
+<h2>Geonames ID: <a href="https://www.geonames.org/{{ site.geonames_id }}" target="_blank">{{ site.geonames_id }}</a>  &emsp; &emsp; &emsp; Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ site.wikidata_id }}" target="_blank">{{ site.wikidata_id }}</a>  &emsp; &emsp; &emsp; Getty Thesaurus of Geographic Names ID: <a href="https://vocab.getty.edu/page/tgn/{{ site.gettyname }}" target="_blank">{{ site.gettyname }}</a></h2>
+{% if site_wikis %}
+  <h2>In:</h2>
+  {% for wikis in site_wikis %}
+<h3><a href="{% url "wikisite-type" wikis.slug %}">{{wikis.desc}}</a>  Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ wikis.name }}" target="_blank">{{ wikis.name }}</a> </h3>
+  {% endfor %}
+{% endif%}
 <div id="map"></div>
     <script> 
       var picon = "{% static "fabrics2/images/redPot2.png" %}";

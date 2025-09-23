@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from .models import Fabric, Site, Slide, Report
+from .models import Fabric, Site, Slide, Report, Wikisite
 from .forms import SearchForm, SiteForm
 from environs import Env
 
@@ -133,6 +133,22 @@ def site(request, slug):
         "site_slides": site_slides,
         "site_fabrics": identified_site.fabrics.all(),
         "site_references": Report.objects.all().filter(slides__in=site_slides).distinct(),
+        "site_wikis": identified_site.wikisite.all(),
+        "mbsu": mbsu,
+        "thsu":thsu
+    })
+
+def wikisite(request, slug):
+    identified_wikisite = get_object_or_404(Wikisite, slug=slug)
+    sites = identified_wikisite.sites.all()
+    fabrics = Fabric.objects.all().filter(sites__in=sites).distinct() 
+    slides = Slide.objects.all().filter(site__in=sites).distinct()   
+    return render(request, "fabrics2/wikisite.html", {
+        "wikisite": identified_wikisite,
+        "sites": sites,
+        "fabrics": fabrics,
+        "slides": slides,       
+        "references": Report.objects.all().filter(slides__in=slides).distinct(),
         "mbsu": mbsu,
         "thsu":thsu
     })

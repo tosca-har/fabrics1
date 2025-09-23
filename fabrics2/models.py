@@ -586,9 +586,12 @@ class Site(models.Model):
     lng = models.DecimalField(null=True, max_digits=9, decimal_places=6)
     geonames_id = models.IntegerField(null=True, blank=True)
     open_location_code = models.CharField(null=True, blank=True, max_length=100)
+    wikidata_id = models.CharField(null=True, blank=True, max_length=100)
+    gettyname = models.CharField(null=True, max_length= 100, blank=True)
     fabrics = models.ManyToManyField(Fabric, related_name="sites", blank=True)
     has_full = models.BooleanField(default=False) 
-    has_image = models.BooleanField(default=False) 
+    has_image = models.BooleanField(default=False)
+    island_type = models.CharField(null=True, blank=True, max_length=100)
    
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -654,3 +657,17 @@ class Slide(models.Model):
     def __str__(self):
         return f"{self.name} ({self.sherd})" 
 
+class Wikisite(models.Model):
+    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
+    name = models.CharField(max_length= 20)
+    desc = models.CharField(null=True, max_length= 100, blank=True)
+    geoname = models.CharField(null=True, max_length= 100, blank=True)
+    gettyname = models.CharField(null=True, max_length= 100, blank=True)
+    sites = models.ManyToManyField(Site, related_name="wikisite", blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.name} ({self.desc})"

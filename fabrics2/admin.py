@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Fabric, Slide, Site, Report
+from .models import Fabric, Slide, Site, Report, Wikisite
 
 
 class FabricAdmin(admin.ModelAdmin):
@@ -22,6 +22,12 @@ class SiteAdmin(admin.ModelAdmin):
     ordering = ('name',)
     
 admin.site.register(Site, SiteAdmin)
+
+class WikisiteAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+    ordering = ('desc',)
+    
+admin.site.register(Wikisite, WikisiteAdmin)
 
 class ReportAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
