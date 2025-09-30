@@ -142,12 +142,12 @@ color: #e35d30;
 }
 .site ul {
   height: auto; 
-  font-size: 1.8rem;
+  font-size: 2rem;
   width: 80%;
-  margin: 0rem 0rem 0.2rem 2rem;
+  margin: 0rem 0rem 0.0rem 1rem;
   padding-left: 1rem; 
-  padding-bottom: 1px;
-  line-height: 1.5; 
+  line-height: 2; 
+  color:  #f8e64f;
 }
 
 .insites {
@@ -168,27 +168,34 @@ color: #e35d30;
   line-height: 1.5; 
 }
 .site li{
-  margin: 0rem 0;
+  margin: 0rem 0rem;
   text-align: left;
   border-bottom: none; 
   padding-bottom: 0rem; 
   padding-top: 0rem;
-
+  line-height: 1.2; 
+  font-size: 1rem;
 }
 .insites li{
   margin: 0rem 0;
   text-align: left;
-  font-size: 1.rem;
+  font-size: 1rem;
   border-bottom: none; 
   padding-bottom: 0rem; 
 }
 .site li a {
 text-decoration: none;
-color:  #f1eeee;
+color:  #f8e64f;
 }
 
-.site li a:hover,
-.site li a:active {
+.insites li a {
+text-decoration: none;
+color:  #f1eeee;
+} 
+
+
+.site a:hover,
+.site a:active {
 color: #e35d30;
 }
 
