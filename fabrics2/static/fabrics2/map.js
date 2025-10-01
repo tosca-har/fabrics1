@@ -4,6 +4,10 @@ getMap = function () {
     let tfUrl = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey='+ thsu;
     let mbUrl = 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token='+ mbsu;
     let mbSUrl = 'https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=' + mbsu;
+/*     var macrostratLayer = L.tileLayer('https://tiles.macrostrat.org/carto/{z}/{x}/{y}.png', {
+        maxZoom: 18, // Adjust maxZoom as needed
+        attribution: 'Macrostrat' // Add appropriate attribution
+    }); */
 
 
 

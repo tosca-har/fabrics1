@@ -19,7 +19,10 @@
 {% block content %}
   {% include "fabrics2/includes/header.html" %}
 <h1>{{ wikisite.desc }}  </h1>
-<h2> Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ wikisite.name }}" target="_blank">{{ wikisite.name }}</a> <h2>Geonames ID: <a href="https://www.geonames.org/{{ wikisite.geoname }}" target="_blank">{{ wikisite.geoname }}</a> &emsp; &emsp; &emsp; Getty Thesaurus of Geographic Names ID: <a href="https://vocab.getty.edu/page/tgn/{{ wikisite.gettyname }}" target="_blank">{{ wikisite.gettyname }}</a></h2></h2>
+<h2> Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ wikisite.name }}" target="_blank">{{ wikisite.name }}</a> </h2>
+<h2>Lithology and Age: {{wikisite.macrostrat}} ( <a href="https://doi.org/10.4095/223767" target="_blank">Chorlton (2007)</a> ) &emsp; &emsp; &emsp; <a href="https://macrostrat.org/map/loc/{{wikisite.lng}}/{{wikisite.lat}}#z=5.0" target="_blank">Macrostrat Geological Map Link</a>  </h2>
+<h2>Geonames ID: <a href="https://www.geonames.org/{{ wikisite.geoname }}" target="_blank">{{ wikisite.geoname }}</a> &emsp; &emsp; &emsp; Getty Thesaurus of Geographic Names ID: <a href="https://vocab.getty.edu/page/tgn/{{ wikisite.gettyname }}" target="_blank">{{ wikisite.gettyname }}</a></h2>
+<h2>Mindat Loc ID: <a href="https://www.mindat.org/loc-{{ wikisite.mindatname }}.html" target="_blank">{{ wikisite.mindatname }}</a> </h2>
    <div id="map"></div>
     <div class="key"> 
         <img src="{% static "fabrics2/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>

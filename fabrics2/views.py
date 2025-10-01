@@ -277,10 +277,11 @@ def search(request):
             query2 = "Regions searched: " + ', '.join(val) + '.'
 
             sites = Site.objects.all().filter(fabrics__in = fabrics).distinct()
-
+            slides = Slide.objects.all().filter(fabric__in = fabrics).distinct()
             if len(fabrics) > 0:
                 return render(request, "fabrics2/results.html", {
                     "fabrics": fabrics,
+                    "slides": slides,
                     "query": query,
                     "query2": query2,
                     "sites": sites,

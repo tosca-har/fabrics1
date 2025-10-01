@@ -592,6 +592,8 @@ class Site(models.Model):
     has_full = models.BooleanField(default=False) 
     has_image = models.BooleanField(default=False)
     island_type = models.CharField(null=True, blank=True, max_length=100)
+    macrostrat = models.CharField(null=True, blank=True, max_length=200)
+    mindatname = models.CharField(null=True, max_length= 100, blank=True)
    
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -663,7 +665,11 @@ class Wikisite(models.Model):
     desc = models.CharField(null=True, max_length= 100, blank=True)
     geoname = models.CharField(null=True, max_length= 100, blank=True)
     gettyname = models.CharField(null=True, max_length= 100, blank=True)
+    mindatname = models.CharField(null=True, max_length= 100, blank=True)
     sites = models.ManyToManyField(Site, related_name="wikisite", blank=True)
+    lat = models.DecimalField(null=True, max_digits=9, decimal_places=6) 
+    lng = models.DecimalField(null=True, max_digits=9, decimal_places=6)
+    macrostrat = models.CharField(null=True, blank=True, max_length=200)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

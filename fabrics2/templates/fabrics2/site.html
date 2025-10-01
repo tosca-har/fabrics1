@@ -17,7 +17,9 @@
 <h1>Site: {{ site.name }}</h1>
 
 <h2>Island: {{ site.island }} &emsp; &emsp; &emsp; Lithology: {{ site.island_type }} ( <a href="https://geoscienceletters.springeropen.com/articles/10.1186/s40562-016-0041-8" target="_blank">Nunn et al. (2016)</a> )</h2>
-<h2>Geonames ID: <a href="https://www.geonames.org/{{ site.geonames_id }}" target="_blank">{{ site.geonames_id }}</a>  &emsp; &emsp; &emsp; Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ site.wikidata_id }}" target="_blank">{{ site.wikidata_id }}</a>  &emsp; &emsp; &emsp; Getty Thesaurus of Geographic Names ID: <a href="https://vocab.getty.edu/page/tgn/{{ site.gettyname }}" target="_blank">{{ site.gettyname }}</a></h2>
+<h2>Lithology and Age: {{site.macrostrat}} ( <a href="https://doi.org/10.4095/223767" target="_blank">Chorlton (2007)</a> ) &emsp; &emsp; &emsp; <a href="https://macrostrat.org/map/loc/{{site.lng}}/{{site.lat}}#z=5.0" target="_blank">Macrostrat Geological Map Link</a>  </h2>
+<h2>Near/In Geonames ID: <a href="https://www.geonames.org/{{ site.geonames_id }}" target="_blank">{{ site.geonames_id }}</a>  &emsp; &emsp; &emsp; Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ site.wikidata_id }}" target="_blank">{{ site.wikidata_id }}</a>  &emsp; &emsp; &emsp; Getty Thesaurus of Geographic Names ID: <a href="https://vocab.getty.edu/page/tgn/{{ site.gettyname }}" target="_blank">{{ site.gettyname }}</a></h2>
+<h2>Mindat Loc ID: <a href="https://www.mindat.org/loc-{{ site.mindatname }}.html" target="_blank">{{ site.mindatname }}</a> </h2>
 {% if site_wikis %}
   <h2>In:</h2>
   {% for wikis in site_wikis %}
