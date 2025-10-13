@@ -26,6 +26,15 @@
       var picon = "{% static "fabrics2/images/redPot2.png" %}";
       var bicon = "{% static "fabrics2/images/ltgreyPot.png" %}";
       var ricon = "{% static "fabrics2/images/tanPot.png" %}";
+       var blackv = "{% static "fabrics2/images/black-tri.png" %}";
+    var orangev = "{% static "fabrics2/images/orange-tri.png" %}";
+    var purplev = "{% static "fabrics2/images/purple-tri.png" %}";
+    var brownv = "{% static "fabrics2/images/brown-tri.png" %}";
+    var redv = "{% static "fabrics2/images/red-tri.png" %}";
+    var bluev = "{% static "fabrics2/images/blue-tri.png" %}";
+    var pinkv = "{% static "fabrics2/images/pink-tri.png" %}";
+    var greenv = "{% static "fabrics2/images/green-tri.png" %}";
+
       let mbsu = "{{mbsu}}";
       let thsu = "{{thsu}}";
       let siteNames = [];
@@ -36,6 +45,12 @@
       let siteColour = [];
       let siteview = false; 
       let mapcentre =  [-4.5, 150];
+        let volcNames = [];
+    let volcLat = [];
+    let volcLng= [];
+    let volcType = [];
+    let volcDetails= [];
+    let volcLinks = [];
       {% for site in sites %}
         siteNames.push("{{site.name}}");
         siteLat.push({{site.lat}});
@@ -44,8 +59,18 @@
         siteFabrics.push("");
         siteColour.push(1);
       {% endfor %}
+       {% for volc in volcanoes %}
+      volcNames.push("{{volc.name}}");
+      volcLat.push({{volc.lat}});
+      volcLng.push({{volc.lng}});
+      volcLinks.push("{{volc.number}}");
+      volcDetails.push("{{volc.rock_type}} - {{volc.volcano_landform}} type - {{volc.type}}");
+      volcType.push("{{volc.rock_type}}")
+    {% endfor %}
+
         getMap(); 
       </script> 
+      <p>Note that to see the 'Geology' layer (layer options in top right corner) you may have to zoom out. </p>
      <div class ="after-map">
     <p>Many fabrics have a range of abundances. The range maximum (top) and minimum (bottom) are shown. </p>
     <p>** Has full slide image available.</p> 

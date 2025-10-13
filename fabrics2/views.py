@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from .models import Fabric, Site, Slide, Report, Wikisite
+from .models import Fabric, Site, Slide, Report, Wikisite, Volcano
 from .forms import SearchForm, SiteForm
 from environs import Env
 
@@ -73,6 +73,7 @@ def site_index(request):
                     "slides": slides,
                     "sites": sites,
                     "references": Report.objects.all().filter(slides__in=slides).distinct(),
+                    "volcanoes": Volcano.objects.all(),
                     "mbsu": mbsu,
                     "thsu":thsu
   
@@ -85,6 +86,7 @@ def site_index(request):
         return render(request, "fabrics2/site-index.html", {
         "form": form,
         "sites": sites,
+        "volcanoes": Volcano.objects.all(),
         "mbsu": mbsu,
         "thsu": thsu
   
@@ -112,6 +114,7 @@ def fabric(request, slug):
         "fabric_references": identified_fabric.refs.all(),
         "fabric_sites": identified_fabric.sites.all(),
         "mbsu": mbsu,
+        "volcanoes": Volcano.objects.all(),
         "thsu":thsu
     })
 
@@ -134,6 +137,8 @@ def site(request, slug):
         "site_fabrics": identified_site.fabrics.all(),
         "site_references": Report.objects.all().filter(slides__in=site_slides).distinct(),
         "site_wikis": identified_site.wikisite.all(),
+        "volcanoes": Volcano.objects.all(),
+        "has_volcanoes" : identified_site.volcano.all(),
         "mbsu": mbsu,
         "thsu":thsu
     })
@@ -142,13 +147,15 @@ def wikisite(request, slug):
     identified_wikisite = get_object_or_404(Wikisite, slug=slug)
     sites = identified_wikisite.sites.all()
     fabrics = Fabric.objects.all().filter(sites__in=sites).distinct() 
-    slides = Slide.objects.all().filter(site__in=sites).distinct()   
+    slides = Slide.objects.all().filter(site__in=sites).distinct()
     return render(request, "fabrics2/wikisite.html", {
         "wikisite": identified_wikisite,
         "sites": sites,
         "fabrics": fabrics,
         "slides": slides,       
         "references": Report.objects.all().filter(slides__in=slides).distinct(),
+        "has_volcanoes" : identified_wikisite.volcano.all(),
+        "volcanoes": Volcano.objects.all(), 
         "mbsu": mbsu,
         "thsu":thsu
     })
@@ -286,6 +293,7 @@ def search(request):
                     "query2": query2,
                     "sites": sites,
                     "mbsu": mbsu,
+                    "volcanoes": Volcano.objects.all(),
                     "thsu":thsu
                 })
             else: return HttpResponseRedirect("no-match")

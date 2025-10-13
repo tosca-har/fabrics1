@@ -21,16 +21,34 @@
 <h2>Near/In Geonames ID: <a href="https://www.geonames.org/{{ site.geonames_id }}" target="_blank">{{ site.geonames_id }}</a>  &emsp; &emsp; &emsp; Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ site.wikidata_id }}" target="_blank">{{ site.wikidata_id }}</a>  &emsp; &emsp; &emsp; Getty Thesaurus of Geographic Names ID: <a href="https://vocab.getty.edu/page/tgn/{{ site.gettyname }}" target="_blank">{{ site.gettyname }}</a></h2>
 <h2>Mindat Loc ID: <a href="https://www.mindat.org/loc-{{ site.mindatname }}.html" target="_blank">{{ site.mindatname }}</a> </h2>
 {% if site_wikis %}
+ <br>
   <h2>In:</h2>
   {% for wikis in site_wikis %}
-<h3><a href="{% url "wikisite-type" wikis.slug %}">{{wikis.desc}}</a>  Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ wikis.name }}" target="_blank">{{ wikis.name }}</a> </h3>
+<p><a href="{% url "wikisite-type" wikis.slug %}">{{wikis.desc}}</a>  Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ wikis.name }}" target="_blank">{{ wikis.name }}</a> </p>
   {% endfor %}
 {% endif%}
+ {% if has_volcanoes %}
+  <br>
+<h2>Volcanoes:</h2>
+ {% for volc in has_volcanoes %}
+  <p> <a href="https://volcano.si.edu/volcano.cfm?vn={{volc.number}}" target="_blank">{{volc.name}}</a>: {{volc.rock_type}}, {{volc.volcano_landform}} type, {{volc.type}}. </p>
+ {% endfor %}
+  {% endif%}
 <div id="map"></div>
+<p id="targetSite"></p> </div>
     <script> 
       var picon = "{% static "fabrics2/images/redPot2.png" %}";
       var bicon = "{% static "fabrics2/images/ltgreyPot.png" %}";
       var ricon = "{% static "fabrics2/images/tanPot.png" %}";
+      var blackv = "{% static "fabrics2/images/black-tri.png" %}";
+       var orangev = "{% static "fabrics2/images/orange-tri.png" %}";
+    var purplev = "{% static "fabrics2/images/purple-tri.png" %}";
+    var brownv = "{% static "fabrics2/images/brown-tri.png" %}";
+    var redv = "{% static "fabrics2/images/red-tri.png" %}";
+    var bluev = "{% static "fabrics2/images/blue-tri.png" %}";
+    var pinkv = "{% static "fabrics2/images/pink-tri.png" %}";
+    var greenv = "{% static "fabrics2/images/green-tri.png" %}";
+
       let mbsu = "{{mbsu}}";
       let thsu = "{{thsu}}";
   
@@ -42,9 +60,24 @@
       let siteColour = [1];
       let siteview = false;
       let mapcentre =  [{{site.lat}}, {{site.lng}}];
+       let volcNames = [];
+    let volcLat = [];
+    let volcLng= [];
+    let volcType = [];
+    let volcDetails= [];
+    let volcLinks = [];
+ {% for volc in volcanoes %}
+      volcNames.push("{{volc.name}}");
+      volcLat.push({{volc.lat}});
+      volcLng.push({{volc.lng}});
+      volcLinks.push("{{volc.number}}");
+      volcDetails.push("{{volc.rock_type}} - {{volc.volcano_landform}} type - {{volc.type}}");
+      volcType.push("{{volc.rock_type}}")
+    {% endfor %}
+
       getMap(); 
     </script> 
-
+<p>Note that to see the 'Geology' layer (layer options in top right corner) you may have to zoom out. </p>
 
 <div class ="after-map">
   <br>

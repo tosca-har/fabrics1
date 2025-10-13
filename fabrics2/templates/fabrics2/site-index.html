@@ -30,6 +30,14 @@
     var picon = "{% static "fabrics2/images/brownPot.png" %}";
     var bicon = "{% static "fabrics2/images/bluePot2.png" %}";
     var ricon = "{% static "fabrics2/images/tanPot.png" %}";
+    var blackv = "{% static "fabrics2/images/black-tri.png" %}";
+    var orangev = "{% static "fabrics2/images/orange-tri.png" %}";
+    var purplev = "{% static "fabrics2/images/purple-tri.png" %}";
+    var brownv = "{% static "fabrics2/images/brown-tri.png" %}";
+    var redv = "{% static "fabrics2/images/red-tri.png" %}";
+    var bluev = "{% static "fabrics2/images/blue-tri.png" %}";
+    var pinkv = "{% static "fabrics2/images/pink-tri.png" %}";
+    var greenv = "{% static "fabrics2/images/green-tri.png" %}";
     let mbsu = "{{mbsu}}";
     let thsu = "{{thsu}}";
     let siteNames = [];
@@ -40,6 +48,13 @@
     let siteColour = [];
     let siteview = true; 
     let mapcentre =  [-4.5, 150];
+    let volcNames = [];
+    let volcLat = [];
+    let volcLng= [];
+    let volcType = [];
+    let volcDetails= [];
+    let volcLinks = [];
+
     {% for site in sites %}
       siteNames.push("{{site.name}}");
       siteLat.push({{site.lat}});
@@ -50,11 +65,19 @@
       {% elif site.has_image %} siteColour.push(2);
       {% else %} siteColour.push(0);
       {% endif %}
+    {% endfor %}
 
+    {% for volc in volcanoes %}
+      volcNames.push("{{volc.name}}");
+      volcLat.push({{volc.lat}});
+      volcLng.push({{volc.lng}});
+      volcLinks.push("{{volc.number}}");
+      volcDetails.push("{{volc.rock_type}} - {{volc.volcano_landform}} type - {{volc.type}}");
+      volcType.push("{{volc.rock_type}}")
     {% endfor %}
       getMap(); 
     </script> 
-   
+   <p>Note that to see the 'Geology' layer (layer options in top right corner) you may have to zoom out. </p>
     <div class = "site" >
     <ul >
       <li> Maluku/Timor 
@@ -519,7 +542,7 @@
               <li><a href="{% url "site-type" "nayau" %}"> Nayau </a> </li>
               <li><a href="{% url "site-type" "mago" %}"> Mago </a> </li>
               <li><a href="{% url "site-type" "vanua-balavu" %}"> Vanua Balavu </a> </li>
-              <li><a href="{% url "site-type" "cikobia" %}"> Cikobia </a> </li>
+              
               <li> <a href="{% url "wikisite-type" "q1859145" %}"> Moala Group </a>  
                 <ul class = "insites">
                 <li><a href="{% url "site-type" "totoya" %}"> Totoya </a> </li>
@@ -537,6 +560,7 @@
               </ul></li>
             <li><a href="{% url "site-type" "vorovoro" %}"> Vorovoro </a> </li>
             <li><a href="{% url "site-type" "kavewa" %}"> Kavewa </a> </li> 
+            <li><a href="{% url "site-type" "cikobia" %}"> Cikobia </a> </li>
             </ul></li>
             <li> <a href="{% url "wikisite-type" "q934813" %}"> Rotuma Group </a>  
             <ul class = "insites">
@@ -638,7 +662,7 @@
             </ul></li>
           <li> <a href="{% url "wikisite-type" "q612098" %}"> Ha'apai Group </a>  
             <ul class = "insites">
-            <li> <a href="{% url "wikisite-type" "q96942975" %}"> Out Mu'omu'a Group</a>  
+            <li> <a href="{% url "wikisite-type" "q49296396" %}"> Out Mu'omu'a Group</a>  
               <ul class = "insites">
                 <li><a href="{% url "site-type" "nomuka" %}"> Nomuka</a> </li>     
                </ul></li>

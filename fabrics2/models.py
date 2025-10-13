@@ -517,12 +517,58 @@ class Report(models.Model):
 
     def __str__(self):
         return f"{self.slug} ({self.fullname})" 
+
+class Lithology(models.Model):
+    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
+    name = models.CharField(max_length= 20)
+    desc = models.CharField(null=True, max_length= 100, blank=True)
+    comments = models.TextField(null=True, blank=True)
+    mindatname = models.CharField(null=True, max_length= 100, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.name} ({self.desc})"
     
+class CeramicPeriod(models.Model):
+    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
+    name = models.CharField(max_length= 20)
+    desc = models.CharField(null=True, max_length= 100, blank=True)
+    comments = models.TextField(null=True, blank=True)
+    time_start = models.IntegerField(null=True, blank =True)
+    time_start_ref = models.ForeignKey(Report, on_delete=models.SET_NULL, null=True, related_name="vg_time_start", blank=True)
+    time_end = models.IntegerField(null=True, blank =True)
+    time_end_ref = models.ForeignKey(Report, on_delete=models.SET_NULL, null=True, related_name="vg_time_end", blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.name} ({self.desc})"
+
+class SuperFabric(models.Model):
+    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
+    name = models.CharField(max_length= 20)
+    desc = models.CharField(null=True, max_length= 100, blank=True)
+    comments = models.TextField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.name} ({self.desc})"
+
 class Fabric(models.Model):
     slug = models.SlugField(default="", blank=True, null=False, db_index=True)
     name = models.CharField(default="tpr", max_length=20)
     desc = models.CharField(null=True, max_length=100)
     region = models.CharField(null=True, max_length=100)
+    superfabrics = models.ManyToManyField(SuperFabric, related_name="fabrics", blank=True)
+    lithologies = models.ManyToManyField(Lithology, related_name="fabrics", blank=True)
     calcareous_min = models.IntegerField(default="0", validators=[MinValueValidator(0), MaxValueValidator(6)])
     calcareous_max = models.IntegerField(default="0", validators=[MinValueValidator(0), MaxValueValidator(6)])
     feldspar_min = models.IntegerField(default="0", validators=[MinValueValidator(0), MaxValueValidator(6)])
@@ -577,7 +623,27 @@ class Fabric(models.Model):
 
     def __str__(self):
         return f"{self.slug} ({self.desc})"
+    
+class Volcano(models.Model):
+    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
+    name = models.CharField(max_length= 20)
+    number = models.CharField(max_length= 20)
+    region = models.CharField(null=True, max_length=100)
+    wiki_id = models.CharField(null=True, max_length= 100, blank=True)
+    type = models.CharField(null=True, max_length= 100, blank=True)
+    lat = models.DecimalField(null=True, max_digits=9, decimal_places=6) 
+    lng = models.DecimalField(null=True, max_digits=9, decimal_places=6)
+    volcanic_region = models.CharField(null=True, blank=True, max_length=200)
+    volcano_landform = models.CharField(null=True, blank=True, max_length=200)
+    rock_type = models.CharField(null=True, blank=True, max_length=200)
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.name} ({self.region})"
+    
 class Site(models.Model):
     slug = models.SlugField(default="", blank= True, null = False, db_index=True)
     name = models.CharField(max_length= 20)
@@ -594,6 +660,10 @@ class Site(models.Model):
     island_type = models.CharField(null=True, blank=True, max_length=100)
     macrostrat = models.CharField(null=True, blank=True, max_length=200)
     mindatname = models.CharField(null=True, max_length= 100, blank=True)
+    site_lithologies = models.ManyToManyField(Lithology, related_name="at_sites", blank=True)
+    ceramic_periods = models.ManyToManyField(CeramicPeriod, related_name="sites", blank=True)
+    comments = models.TextField(null=True, blank=True)
+    volcano = models.ManyToManyField(Volcano, related_name="site", blank=True)
    
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -655,9 +725,11 @@ class Slide(models.Model):
     full_image_oe_omero_id = models.IntegerField(null=True, blank=True)
     source = models.CharField(default="Dickinson Collection, Bishop Museum", null=True, blank=True, max_length=100)
     refs = models.ManyToManyField(Report, related_name="slides", blank=True)
+    ceramic_period = models.ForeignKey(CeramicPeriod, on_delete=models.SET_NULL, null=True, related_name="slides")
 
     def __str__(self):
         return f"{self.name} ({self.sherd})" 
+
 
 class Wikisite(models.Model):
     slug = models.SlugField(default="", blank= True, null = False, db_index=True)
@@ -670,6 +742,8 @@ class Wikisite(models.Model):
     lat = models.DecimalField(null=True, max_digits=9, decimal_places=6) 
     lng = models.DecimalField(null=True, max_digits=9, decimal_places=6)
     macrostrat = models.CharField(null=True, blank=True, max_length=200)
+    comments = models.TextField(null=True, blank=True)
+    volcano = models.ManyToManyField(Volcano, related_name="wikisite", blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -677,3 +751,5 @@ class Wikisite(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.desc})"
+
+

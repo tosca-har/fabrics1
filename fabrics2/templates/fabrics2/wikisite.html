@@ -23,6 +23,13 @@
 <h2>Lithology and Age: {{wikisite.macrostrat}} ( <a href="https://doi.org/10.4095/223767" target="_blank">Chorlton (2007)</a> ) &emsp; &emsp; &emsp; <a href="https://macrostrat.org/map/loc/{{wikisite.lng}}/{{wikisite.lat}}#z=5.0" target="_blank">Macrostrat Geological Map Link</a>  </h2>
 <h2>Geonames ID: <a href="https://www.geonames.org/{{ wikisite.geoname }}" target="_blank">{{ wikisite.geoname }}</a> &emsp; &emsp; &emsp; Getty Thesaurus of Geographic Names ID: <a href="https://vocab.getty.edu/page/tgn/{{ wikisite.gettyname }}" target="_blank">{{ wikisite.gettyname }}</a></h2>
 <h2>Mindat Loc ID: <a href="https://www.mindat.org/loc-{{ wikisite.mindatname }}.html" target="_blank">{{ wikisite.mindatname }}</a> </h2>
+ {% if has_volcanoes %}
+ <br>
+<h2>Volcanoes:</h2>
+ {% for volc in has_volcanoes %}
+  <p> <a href="https://volcano.si.edu/volcano.cfm?vn={{volc.number}}" target="_blank">{{volc.name}}</a>: {{volc.rock_type}}, {{volc.volcano_landform}} type, {{volc.type}}. </p>
+ {% endfor %}
+  {% endif%}
    <div id="map"></div>
     <div class="key"> 
         <img src="{% static "fabrics2/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>
@@ -35,6 +42,15 @@
       var picon = "{% static "fabrics2/images/brownPot.png" %}";
       var bicon = "{% static "fabrics2/images/bluePot2.png" %}";
       var ricon = "{% static "fabrics2/images/tanPot.png" %}";
+       var blackv = "{% static "fabrics2/images/black-tri.png" %}";
+    var orangev = "{% static "fabrics2/images/orange-tri.png" %}";
+    var purplev = "{% static "fabrics2/images/purple-tri.png" %}";
+    var brownv = "{% static "fabrics2/images/brown-tri.png" %}";
+    var redv = "{% static "fabrics2/images/red-tri.png" %}";
+    var bluev = "{% static "fabrics2/images/blue-tri.png" %}";
+    var pinkv = "{% static "fabrics2/images/pink-tri.png" %}";
+    var greenv = "{% static "fabrics2/images/green-tri.png" %}";
+
       let mbsu = "{{mbsu}}";
       let thsu = "{{thsu}}";
       let siteNames = [];
@@ -45,6 +61,13 @@
       let siteColour = [];
       let siteview = true; 
       let mapcentre =  [-4.5, 150];
+       let volcNames = [];
+    let volcLat = [];
+    let volcLng= [];
+    let volcType = [];
+    let volcDetails= [];
+    let volcLinks = [];
+
       {% for site in sites %}
         siteNames.push("{{site.name}}");
         siteLat.push({{site.lat}});
@@ -56,8 +79,18 @@
         {% else %} siteColour.push(0);
         {% endif %}
         {% endfor %}
+         {% for volc in volcanoes %}
+      volcNames.push("{{volc.name}}");
+      volcLat.push({{volc.lat}});
+      volcLng.push({{volc.lng}});
+      volcLinks.push("{{volc.number}}");
+      volcDetails.push("{{volc.rock_type}} - {{volc.volcano_landform}} type - {{volc.type}}");
+      volcType.push("{{volc.rock_type}}")
+    {% endfor %}
+
         getMap(); 
       </script>  
+      <p>Note that to see the 'Geology' layer (layer options in top right corner) you may have to zoom out. </p>
       <div class ="after-map">
     <p>Many fabrics have a range of abundances. The range maximum (top) and minimum (bottom) are shown. </p>
     <p>** Has full slide image available.</p> 
