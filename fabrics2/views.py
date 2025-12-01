@@ -104,9 +104,7 @@ def fabric_by_number(request, atpr):
 
 
 def fabric(request, slug):
-        # indentified_fabric = next(fabric for fabric in fabricsd if fabric['slug'] == slug)
     identified_fabric = get_object_or_404(Fabric, slug=slug)
-        # identified_fabric = Fabric.objects.get(slug=slug)
     id_fabrics = identified_fabric.slides.all()
     return render(request, "fabrics2/fabric.html", {
         "fabric": identified_fabric,
@@ -116,6 +114,16 @@ def fabric(request, slug):
         "mbsu": mbsu,
         "volcanoes": Volcano.objects.all(),
         "thsu":thsu
+    })
+
+def slide(request, slug):
+    identified_slide = get_object_or_404(Slide, slug=slug)
+ #   id_fabrics = identified_fabric.slides.all()
+    return render(request, "fabrics2/slide.html", {
+        "slide": identified_slide,
+         "fabric": identified_slide.fabric,
+ #       "fabric_references": identified_fabric.refs.all(),
+        "site": identified_slide.site,
     })
 
 def report(request, slug):

@@ -13,6 +13,7 @@ urlpatterns = [
     path("site_<slug:slug>", views.site, name="site-type"),
     path("wikisite_<slug:slug>", views.wikisite, name="wikisite-type"),
     path("report_<slug:slug>", views.report, name="report-type"),
+    path("slide_<slug:slug>", views.slide, name="slide-type"),
     path("<slug:slug>", views.fabric, name="fabric-type"),
     
 ]

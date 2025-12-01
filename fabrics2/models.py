@@ -541,6 +541,8 @@ class CeramicPeriod(models.Model):
     time_start_ref = models.ForeignKey(Report, on_delete=models.SET_NULL, null=True, related_name="vg_time_start", blank=True)
     time_end = models.IntegerField(null=True, blank =True)
     time_end_ref = models.ForeignKey(Report, on_delete=models.SET_NULL, null=True, related_name="vg_time_end", blank=True)
+    wikidata = models.CharField(null=True, max_length= 100, blank=True)
+    periodo = models.CharField(null=True, max_length= 100, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -684,6 +686,7 @@ class Site(models.Model):
         return fabstring
     
 class Slide(models.Model):
+    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
     name = models.CharField(max_length= 20, db_index=True, unique=True)
     fabric = models.ForeignKey(Fabric, on_delete=models.SET_NULL, null=True, related_name="slides")
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, null=True, blank=True, related_name="slides")
@@ -725,12 +728,16 @@ class Slide(models.Model):
     full_image_oe_omero_id = models.IntegerField(null=True, blank=True)
     source = models.CharField(default="Dickinson Collection, Bishop Museum", null=True, blank=True, max_length=100)
     refs = models.ManyToManyField(Report, related_name="slides", blank=True)
-    ceramic_period = models.ForeignKey(CeramicPeriod, on_delete=models.SET_NULL, null=True, related_name="slides")
+    ceramic_period = models.ForeignKey(CeramicPeriod, on_delete=models.SET_NULL, null=True, blank=True, related_name="slides")
     sherd_image = models.CharField(null=True, max_length=100, blank=True)
     sherd_geochem = models.CharField(null=True, max_length=100, blank=True)
     sherd_microct = models.CharField(null=True, max_length=100, blank=True)
     sherd_desc = models.CharField(null=True, max_length=100, blank=True)
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+    
     def __str__(self):
         return f"{self.name} ({self.sherd})" 
 
