@@ -726,6 +726,10 @@ class Slide(models.Model):
     source = models.CharField(default="Dickinson Collection, Bishop Museum", null=True, blank=True, max_length=100)
     refs = models.ManyToManyField(Report, related_name="slides", blank=True)
     ceramic_period = models.ForeignKey(CeramicPeriod, on_delete=models.SET_NULL, null=True, related_name="slides")
+    sherd_image = models.CharField(null=True, max_length=100, blank=True)
+    sherd_geochem = models.CharField(null=True, max_length=100, blank=True)
+    sherd_microct = models.CharField(null=True, max_length=100, blank=True)
+    sherd_desc = models.CharField(null=True, max_length=100, blank=True)
 
     def __str__(self):
         return f"{self.name} ({self.sherd})" 
