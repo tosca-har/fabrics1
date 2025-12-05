@@ -11,6 +11,7 @@ urlpatterns = [
     path("glossary", views.glossary, name="glossary"),
     path("no-match", views.no_match, name="no-match"),
     path("site_<slug:slug>", views.site, name="site-type"),
+    path("superfabric_<slug:slug>", views.superfabric, name="superfabric-type"),
     path("wikisite_<slug:slug>", views.wikisite, name="wikisite-type"),
     path("report_<slug:slug>", views.report, name="report-type"),
     path("slide_<slug:slug>", views.slide, name="slide-type"),

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from .models import Fabric, Site, Slide, Report, Wikisite, Volcano
+from .models import Fabric, Site, Slide, Report, Wikisite, Volcano, SuperFabric
 from .forms import SearchForm, SiteForm
 from environs import Env
 
@@ -111,6 +111,7 @@ def fabric(request, slug):
         "fabric_slides": id_fabrics,
         "fabric_references": identified_fabric.refs.all(),
         "fabric_sites": identified_fabric.sites.all(),
+        "superfabrics": identified_fabric.superfabrics.all(),
         "mbsu": mbsu,
         "volcanoes": Volcano.objects.all(),
         "thsu":thsu
@@ -118,11 +119,10 @@ def fabric(request, slug):
 
 def slide(request, slug):
     identified_slide = get_object_or_404(Slide, slug=slug)
- #   id_fabrics = identified_fabric.slides.all()
     return render(request, "fabrics2/slide.html", {
         "slide": identified_slide,
          "fabric": identified_slide.fabric,
- #       "fabric_references": identified_fabric.refs.all(),
+        "slide_references": identified_slide.refs.all(),
         "site": identified_slide.site,
     })
 
@@ -170,6 +170,24 @@ def wikisite(request, slug):
 
 def glossary(request):
     return render(request, "fabrics2/glossary.html")
+
+def superfabric(request, slug):
+    identified_superfabric = get_object_or_404(SuperFabric, slug=slug)
+    fabrics = identified_superfabric.fabrics.all()
+    sites = Site.objects.all().filter(fabrics__in = fabrics).distinct()
+    slides = Slide.objects.all().filter(fabric__in = fabrics).distinct()
+    query = identified_superfabric.name
+    query2 = identified_superfabric.desc
+    return render(request, "fabrics2/results.html", {
+         "fabrics": fabrics,
+         "slides": slides,
+        "query": query,
+        "query2": query2,
+        "sites": sites,
+        "mbsu": mbsu,
+        "volcanoes": Volcano.objects.all(),
+        "thsu":thsu
+    })
 
 def search(request):
     if request.method == 'POST':

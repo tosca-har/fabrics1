@@ -136,7 +136,7 @@
         <th>Garnet/ Spinel</th> <th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics</th>
       {% for slide in slides %}
         <tr>
-        <td>{{slide.name}}</td>
+        <td><a href="{% url "slide-type" slide.slug %}">{{slide.name}}</a></td>
         <td>{{slide.fabric }}</td>
         <td>{{slide.sherd_origin_site}}</td>
         <td data-tag="{{slide.calcareous}}"> {{slide.calcareous}}</td>
@@ -158,7 +158,7 @@
       {% endfor %}
       </table>  
       {% for slide in slides %}
-        <h3>{{slide.name }}</h3>
+        <h3><a href="{% url "slide-type" slide.slug %}">{{slide.name}}</a></h3>
         {% if slide.image_name and slide.full_image_name and slide.full_image_oe_omero_id %}
         <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
           <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">

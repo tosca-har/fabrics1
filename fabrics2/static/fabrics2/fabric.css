@@ -32,6 +32,15 @@ h2 {
     margin: 2rem 2rem 1rem 2rem;
 }
 
+h3 {
+    color:  #db7f3d;
+    text-decoration: none;
+
+}
+h3 a:hover,
+h3 a:active {
+    color: #8e0101;
+}
 
 .fallback {
     text-align: center;

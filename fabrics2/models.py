@@ -534,7 +534,7 @@ class Lithology(models.Model):
     
 class CeramicPeriod(models.Model):
     slug = models.SlugField(default="", blank= True, null = False, db_index=True)
-    name = models.CharField(max_length= 20)
+    name = models.CharField(max_length= 50)
     desc = models.CharField(null=True, max_length= 100, blank=True)
     comments = models.TextField(null=True, blank=True)
     time_start = models.IntegerField(null=True, blank =True)
@@ -549,12 +549,12 @@ class CeramicPeriod(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.name} ({self.desc})"
+        return f"{self.name} ({self.time_start} - {self.time_end} BP)"
 
 class SuperFabric(models.Model):
     slug = models.SlugField(default="", blank= True, null = False, db_index=True)
-    name = models.CharField(max_length= 20)
-    desc = models.CharField(null=True, max_length= 100, blank=True)
+    name = models.CharField(max_length= 50)
+    desc = models.CharField(null=True, max_length= 200, blank=True)
     comments = models.TextField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
