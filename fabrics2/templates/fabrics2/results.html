@@ -13,12 +13,16 @@
 {% endblock %}
 
 {% block page_title %}
-  Search Results
+  Fabrics
 {% endblock %}
 
 {% block content %}
   {% include "fabrics2/includes/header.html" %}
-    <p> {{ query }} </p>
+    <p> {{ query }}
+    {% if wiki != " " %}
+      (<a href="https://www.wikidata.org/wiki/{{ wiki }}" target="_blank">{{ wiki }}</a>)
+    {% endif %}
+    </p>
     <p> {{ query2 }} </p>
     <div id="map"></div>
     <div> <p id="targetSite"></p><div>

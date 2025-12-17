@@ -171,18 +171,26 @@ def wikisite(request, slug):
 def glossary(request):
     return render(request, "fabrics2/glossary.html")
 
+def lod(request):
+    return render(request, "fabrics2/lod.html")
+
 def superfabric(request, slug):
     identified_superfabric = get_object_or_404(SuperFabric, slug=slug)
     fabrics = identified_superfabric.fabrics.all()
     sites = Site.objects.all().filter(fabrics__in = fabrics).distinct()
     slides = Slide.objects.all().filter(fabric__in = fabrics).distinct()
     query = identified_superfabric.name
+    wiki = " "
+    if identified_superfabric.wiki_id:
+        wiki = identified_superfabric.wiki_id
     query2 = identified_superfabric.desc
+    
     return render(request, "fabrics2/results.html", {
          "fabrics": fabrics,
          "slides": slides,
         "query": query,
         "query2": query2,
+        "wiki": wiki,
         "sites": sites,
         "mbsu": mbsu,
         "volcanoes": Volcano.objects.all(),
@@ -308,7 +316,7 @@ def search(request):
             fabrics = fabrics.filter(region__in=val)
             query = query + "." 
             query2 = "Regions searched: " + ', '.join(val) + '.'
-
+            wiki = " "
             sites = Site.objects.all().filter(fabrics__in = fabrics).distinct()
             slides = Slide.objects.all().filter(fabric__in = fabrics).distinct()
             if len(fabrics) > 0:
@@ -317,6 +325,7 @@ def search(request):
                     "slides": slides,
                     "query": query,
                     "query2": query2,
+                    "wiki": wiki,
                     "sites": sites,
                     "mbsu": mbsu,
                     "volcanoes": Volcano.objects.all(),

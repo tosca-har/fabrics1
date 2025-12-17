@@ -9,6 +9,7 @@ urlpatterns = [
     path("search", views.search, name="search"),
     path("<int:tpr>", views.fabric_by_number),
     path("glossary", views.glossary, name="glossary"),
+    path("vocab", views.lod, name="vocab"),
     path("no-match", views.no_match, name="no-match"),
     path("site_<slug:slug>", views.site, name="site-type"),
     path("superfabric_<slug:slug>", views.superfabric, name="superfabric-type"),
