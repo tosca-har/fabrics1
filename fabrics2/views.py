@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from .models import Fabric, Site, Slide, Report, Wikisite, Volcano, SuperFabric
+from .models import Fabric, Site, Slide, Report, Wikisite, Volcano, SuperFabric, CeramicPeriod
 from .forms import SearchForm, SiteForm
 from environs import Env
 
@@ -102,6 +102,16 @@ def fabric_by_number(request, atpr):
     redirect_path = reverse("fabric-type", args=[redirect_fabric])
     return HttpResponseRedirect(redirect_path)
 
+def period(request, slug):
+    identified_period = get_object_or_404(CeramicPeriod, slug=slug)
+    children = identified_period.children.all()
+    return render(request, "fabrics2/period.html", {
+        "period": identified_period,
+        "slides": identified_period.slides.all(),
+        "fabrics": identified_period.fabrics.all(),
+        "wikisites":identified_period.wikisites.all(),
+        "children" : children
+    })
 
 def fabric(request, slug):
     identified_fabric = get_object_or_404(Fabric, slug=slug)

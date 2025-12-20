@@ -32,25 +32,7 @@ class Lithology(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.desc})"
-    
-class CeramicPeriod(models.Model):
-    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
-    name = models.CharField(max_length= 50)
-    desc = models.CharField(null=True, max_length= 100, blank=True)
-    comments = models.TextField(null=True, blank=True)
-    time_start = models.IntegerField(null=True, blank =True)
-    time_start_ref = models.ForeignKey(Report, on_delete=models.SET_NULL, null=True, related_name="vg_time_start", blank=True)
-    time_end = models.IntegerField(null=True, blank =True)
-    time_end_ref = models.ForeignKey(Report, on_delete=models.SET_NULL, null=True, related_name="vg_time_end", blank=True)
-    wikidata = models.CharField(null=True, max_length= 100, blank=True)
-    periodo = models.CharField(null=True, max_length= 100, blank=True)
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return f"{self.name} ({self.time_start} - {self.time_end} BP)"
 
 class SuperFabric(models.Model):
     slug = models.SlugField(default="", blank= True, null = False, db_index=True)
@@ -127,7 +109,29 @@ class Fabric(models.Model):
 
     def __str__(self):
         return f"{self.slug} ({self.desc})"
+
     
+class CeramicPeriod(models.Model):
+    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
+    name = models.CharField(max_length= 50)
+    desc = models.CharField(null=True, max_length= 100, blank=True)
+    comments = models.TextField(null=True, blank=True)
+    time_start = models.IntegerField(null=True, blank =True)
+    time_start_ref = models.ForeignKey(Report, on_delete=models.SET_NULL, null=True, related_name="vg_time_start", blank=True)
+    time_end = models.IntegerField(null=True, blank =True)
+    time_end_ref = models.ForeignKey(Report, on_delete=models.SET_NULL, null=True, related_name="vg_time_end", blank=True)
+    wikidata = models.CharField(null=True, max_length= 100, blank=True)
+    periodo = models.CharField(null=True, max_length= 100, blank=True)
+    parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='children')
+    fabrics = models.ManyToManyField(Fabric, related_name="ceramic_periods", blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.name} ({self.time_start} - {self.time_end} BP)"
+
 class Volcano(models.Model):
     slug = models.SlugField(default="", blank= True, null = False, db_index=True)
     name = models.CharField(max_length= 20)
@@ -165,7 +169,6 @@ class Site(models.Model):
     macrostrat = models.CharField(null=True, blank=True, max_length=200)
     mindatname = models.CharField(null=True, max_length= 100, blank=True)
     site_lithologies = models.ManyToManyField(Lithology, related_name="at_sites", blank=True)
-    ceramic_periods = models.ManyToManyField(CeramicPeriod, related_name="sites", blank=True)
     comments = models.TextField(null=True, blank=True)
     volcano = models.ManyToManyField(Volcano, related_name="site", blank=True)
    
@@ -257,6 +260,8 @@ class Wikisite(models.Model):
     macrostrat = models.CharField(null=True, blank=True, max_length=200)
     comments = models.TextField(null=True, blank=True)
     volcano = models.ManyToManyField(Volcano, related_name="wikisite", blank=True)
+    ceramic_periods = models.ManyToManyField(CeramicPeriod, related_name="wikisites", blank=True)
+
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
