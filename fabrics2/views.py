@@ -122,6 +122,7 @@ def fabric(request, slug):
         "fabric_references": identified_fabric.refs.all(),
         "fabric_sites": identified_fabric.sites.all(),
         "superfabrics": identified_fabric.superfabrics.all(),
+        "ceramic_periods": identified_fabric.ceramic_periods.all(),
         "mbsu": mbsu,
         "volcanoes": Volcano.objects.all(),
         "thsu":thsu
@@ -189,12 +190,12 @@ def superfabric(request, slug):
     fabrics = identified_superfabric.fabrics.all()
     sites = Site.objects.all().filter(fabrics__in = fabrics).distinct()
     slides = Slide.objects.all().filter(fabric__in = fabrics).distinct()
+    periods = CeramicPeriod.objects.all().filter(fabrics__in = fabrics).distinct()
     query = identified_superfabric.name
     wiki = " "
     if identified_superfabric.wiki_id:
         wiki = identified_superfabric.wiki_id
     query2 = identified_superfabric.desc
-    
     return render(request, "fabrics2/results.html", {
          "fabrics": fabrics,
          "slides": slides,
@@ -204,6 +205,7 @@ def superfabric(request, slug):
         "sites": sites,
         "mbsu": mbsu,
         "volcanoes": Volcano.objects.all(),
+        "ceramic_periods": periods,
         "thsu":thsu
     })
 
@@ -329,6 +331,7 @@ def search(request):
             wiki = " "
             sites = Site.objects.all().filter(fabrics__in = fabrics).distinct()
             slides = Slide.objects.all().filter(fabric__in = fabrics).distinct()
+            periods = CeramicPeriod.objects.all().filter(fabrics__in = fabrics).distinct()
             if len(fabrics) > 0:
                 return render(request, "fabrics2/results.html", {
                     "fabrics": fabrics,
@@ -338,6 +341,7 @@ def search(request):
                     "wiki": wiki,
                     "sites": sites,
                     "mbsu": mbsu,
+                    "ceramic_periods": periods,
                     "volcanoes": Volcano.objects.all(),
                     "thsu":thsu
                 })

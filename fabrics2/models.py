@@ -124,6 +124,8 @@ class CeramicPeriod(models.Model):
     periodo = models.CharField(null=True, max_length= 100, blank=True)
     parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='children')
     fabrics = models.ManyToManyField(Fabric, related_name="ceramic_periods", blank=True)
+    image_name = models.CharField(null=True, max_length=100, blank=True)
+    image_link = models.CharField(null=True, max_length=100, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

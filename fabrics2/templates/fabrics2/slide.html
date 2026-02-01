@@ -76,7 +76,7 @@
  
   <h3 id="des">{{ slide.sherd_desc }}</h3>  
   {% if slide.ceramic_period %}
-    <h2>Period: <a href="{% url "period" slide.ceramic_period.slug %}">{{slide.ceramic_period}}</a>  (<a href="https://www.wikidata.org/wiki/{{slide.ceramic_period.wikidata}}">{{slide.ceramic_period.wikidata}}</a>)</h2>
+    <h2>Ware/Period: <a href="{% url "period" slide.ceramic_period.slug %}">{{slide.ceramic_period}}</a>  (<a href="https://www.wikidata.org/wiki/{{slide.ceramic_period.wikidata}}">{{slide.ceramic_period.wikidata}}</a>)</h2>
   {% endif%}
   <h2>Site:  <a href="{% url "site-type" site.slug %}">{{slide.site}}</a></h2>
   <h2>Suspected origin site:  {{slide.sherd_origin_site}}</h2>

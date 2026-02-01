@@ -131,7 +131,7 @@
     <h2>Slides: </h2>
     {% if slides %}
       <table class = "slidetable">
-        <th>Slide </th> <th>Fabric</th> <th>Possible Origin</th><th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
+        <th>Slide </th> <th>Fabric</th> <th>Possible Origin</th><th>Ware</th><th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
         <th>Opaques</th> <th>Olivine</th><th>Biotite</th> <th>Muscovite</th> <th>Epidote</th> 
         <th>Garnet/ Spinel</th> <th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics</th>
       {% for slide in slides %}
@@ -139,6 +139,7 @@
         <td><a href="{% url "slide-type" slide.slug %}">{{slide.name}}</a></td>
         <td>{{slide.fabric }}</td>
         <td>{{slide.sherd_origin_site}}</td>
+        <td>{% if slide.ceramic_period %} <a href="{% url "period" slide.ceramic_period.slug %}">{{ slide.ceramic_period}}</a>{% endif %}</td>
         <td data-tag="{{slide.calcareous}}"> {{slide.calcareous}}</td>
         <td data-tag="{{slide.quartz}}"> {{slide.quartz}}</td>
         <td data-tag="{{slide.feldspar}}">{{slide.feldspar}}</td>
