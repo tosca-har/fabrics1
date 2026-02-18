@@ -103,13 +103,21 @@ def fabric_by_number(request, atpr):
     return HttpResponseRedirect(redirect_path)
 
 def period(request, slug):
+    identified_period2 = CeramicPeriod.objects.filter(slug=slug)
     identified_period = get_object_or_404(CeramicPeriod, slug=slug)
+    children2 = identified_period.get_all_descendants()
+    pk_set = {obj.pk for obj in children2}
     children = identified_period.children.all()
+    children3 = CeramicPeriod.objects.filter(pk__in=pk_set)
+    periods = children3 | identified_period2
+    slides = Slide.objects.all().filter(ceramic_period__in=periods).distinct()
+    fabrics = Fabric.objects.all().filter(ceramic_periods__in=periods).distinct()
+    wikisites = Wikisite.objects.all().filter(ceramic_periods__in=periods).distinct()
     return render(request, "fabrics2/period.html", {
         "period": identified_period,
-        "slides": identified_period.slides.all(),
-        "fabrics": identified_period.fabrics.all(),
-        "wikisites":identified_period.wikisites.all(),
+        "slides": slides,
+        "fabrics": fabrics,
+        "wikisites":wikisites,
         "children" : children
     })
 
@@ -132,7 +140,7 @@ def slide(request, slug):
     identified_slide = get_object_or_404(Slide, slug=slug)
     return render(request, "fabrics2/slide.html", {
         "slide": identified_slide,
-         "fabric": identified_slide.fabric,
+        "fabric": identified_slide.fabric,
         "slide_references": identified_slide.refs.all(),
         "site": identified_slide.site,
     })

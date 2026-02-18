@@ -131,6 +131,14 @@ class CeramicPeriod(models.Model):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
+    def get_all_descendants(self):
+        descendants = set()
+        children = self.children.all()
+        for child in children:
+            descendants.add(child)
+            descendants.update(child.get_all_descendants())
+        return descendants
+
     def __str__(self):
         return f"{self.name} ({self.time_start} - {self.time_end} BP)"
 
