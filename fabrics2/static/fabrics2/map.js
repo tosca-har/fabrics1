@@ -55,8 +55,8 @@ getMap = function () {
         'Landscape': landscape,
         'Satellite': satellite,
         'Streets': streets,
-        'OSM' : osm,
-        'Geology': macrostratLayer
+        'OSM' : osm
+        
     };
 
     for (var i = 0; i < siteNames.length; i += 1) {
@@ -103,12 +103,14 @@ getMap = function () {
             'Has full slide': full,
             'Has image': imag,
             'No images': sites,
-            'Volcanoes': volcanoes
+            'Volcanoes': volcanoes,
+            'Geology': macrostratLayer
             }; 
         } else {
             overlays = {
                 'Selected': full,
-                'Volcanoes': volcanoes
+                'Volcanoes': volcanoes,
+                'Geology': macrostratLayer
                 }; 
         }
         var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
