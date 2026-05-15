@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Fabric, Slide, Site, Report, Wikisite, Lithology, CeramicPeriod, SuperFabric, Volcano
+from .models import Fabric, Slide, Site, Report, Wikisite, CeramicPeriod, SuperFabric, Volcano
 
 
 class FabricAdmin(admin.ModelAdmin):
@@ -34,12 +34,6 @@ class ReportAdmin(admin.ModelAdmin):
     ordering = ('name',)
     
 admin.site.register(Report, ReportAdmin)
-
-class LithologyAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("name",)}
-    ordering = ('desc',)
-    
-admin.site.register(Lithology, LithologyAdmin)
 
 class SuperFabricAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
