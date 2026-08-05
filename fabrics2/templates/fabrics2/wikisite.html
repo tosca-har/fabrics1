@@ -31,6 +31,12 @@
   <p> <a href="https://volcano.si.edu/volcano.cfm?vn={{volc.number}}" target="_blank">{{volc.name}}</a>: {{volc.rock_type}}, {{volc.volcano_landform}} type, {{volc.type}}. </p>
  {% endfor %}
   {% endif%}
+  {% if externallinks %}
+  <h2>External links:</h2>
+  {% for ex in externallinks %}
+<p><a href="{{ex.first}}{{ex.last}}" target="_blank">{{ex.org}}</a> </p>
+  {% endfor %}
+{% endif%} 
    <div id="map"></div>
     <div class="key"> 
         <img src="{% static "fabrics2/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>

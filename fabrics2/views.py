@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from .models import Fabric, Site, Slide, Report, Wikisite, Volcano, SuperFabric, CeramicPeriod
+from .models import Fabric, Site, Slide, Report, Wikisite, Volcano, SuperFabric, CeramicPeriod, ExternalLink
 from .forms import SearchForm, SiteForm
 from environs import Env
 
@@ -58,16 +58,14 @@ def index(request, order, limited = 0):
 
 
 
-def site_index(request):
+def site_index2(request):
     if request.method == 'POST':
-        form = SiteForm(request.POST) 
-        
+        form = SiteForm(request.POST)        
         if form.is_valid():
             val = form.cleaned_data.get("sites_to_include") 
             sites = Site.objects.all().filter(name__in=val)
             fabrics = Fabric.objects.all().filter(sites__in=sites).distinct() 
             slides = Slide.objects.all().filter(site__in=sites).distinct()   
-
             return render(request, "fabrics2/mulisite.html", {
                     "fabrics": fabrics,
                     "slides": slides,
@@ -76,8 +74,6 @@ def site_index(request):
                     "volcanoes": Volcano.objects.all(),
                     "mbsu": mbsu,
                     "thsu":thsu
-  
-
             })
         else: return HttpResponseRedirect("no-match")
     else:   
@@ -88,11 +84,22 @@ def site_index(request):
         "sites": sites,
         "volcanoes": Volcano.objects.all(),
         "mbsu": mbsu,
-        "thsu": thsu
-  
+        "thsu": thsu  
     })
  
 
+def site_index(request):   
+    return render(request, "fabrics2/site-index.html", {
+        "sites": Site.objects.all(),
+        "volcanoes": Volcano.objects.all(),
+        "mbsu": mbsu,
+        "thsu": thsu 
+    })
+
+def period_index(request):   
+    return render(request, "fabrics2/period-index.html", {
+        "periods": CeramicPeriod.objects.all()
+    })
 
 def fabric_by_number(request, atpr):
     fabricsd = Fabric.objects.all()
@@ -113,11 +120,14 @@ def period(request, slug):
     slides = Slide.objects.all().filter(ceramic_period__in=periods).distinct()
     fabrics = Fabric.objects.all().filter(ceramic_periods__in=periods).distinct()
     wikisites = Wikisite.objects.all().filter(ceramic_periods__in=periods).distinct()
+    externallinks = ExternalLink.objects.all().filter(ceramic_periods__in=periods).distinct()
+
     return render(request, "fabrics2/period.html", {
         "period": identified_period,
         "slides": slides,
         "fabrics": fabrics,
         "wikisites":wikisites,
+        "externallinks":externallinks,
         "children" : children
     })
 
@@ -158,12 +168,14 @@ def report(request, slug):
 def site(request, slug):
     identified_site = get_object_or_404(Site, slug=slug)
     site_slides = identified_site.slides.all()
+    externallinks = identified_site.external_link.all()
     return render(request, "fabrics2/site.html", {
         "site": identified_site,
         "site_slides": site_slides,
         "site_fabrics": identified_site.fabrics.all(),
         "site_references": Report.objects.all().filter(slides__in=site_slides).distinct(),
         "site_wikis": identified_site.wikisite.all(),
+        "externallinks":externallinks,
         "volcanoes": Volcano.objects.all(),
         "has_volcanoes" : identified_site.volcano.all(),
         "mbsu": mbsu,
@@ -175,6 +187,7 @@ def wikisite(request, slug):
     sites = identified_wikisite.sites.all()
     fabrics = Fabric.objects.all().filter(sites__in=sites).distinct() 
     slides = Slide.objects.all().filter(site__in=sites).distinct()
+    externallinks = identified_wikisite.external_link.all()
     return render(request, "fabrics2/wikisite.html", {
         "wikisite": identified_wikisite,
         "sites": sites,
@@ -183,6 +196,7 @@ def wikisite(request, slug):
         "references": Report.objects.all().filter(slides__in=slides).distinct(),
         "has_volcanoes" : identified_wikisite.volcano.all(),
         "volcanoes": Volcano.objects.all(), 
+        "externallinks":externallinks,
         "mbsu": mbsu,
         "thsu":thsu
     })

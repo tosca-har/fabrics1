@@ -36,6 +36,14 @@
   <p> <a href="https://volcano.si.edu/volcano.cfm?vn={{volc.number}}" target="_blank">{{volc.name}}</a>: {{volc.rock_type}}, {{volc.volcano_landform}} type, {{volc.type}}. </p>
  {% endfor %}
   {% endif%}
+   {% if externallinks %}
+ 
+  <h2>External links:</h2>
+  {% for ex in externallinks %}
+<p><a href="{{ex.first}}{{ex.last}}" target="_blank">{{ex.org}}</a> </p>
+  {% endfor %}
+{% endif%} 
+
 <div id="map"></div>
 <p id="targetSite"></p> </div>
     <script> 
@@ -77,10 +85,12 @@
       volcType.push("{{volc.rock_type}}")
     {% endfor %}
 
+
+
       getMap(); 
     </script> 
 <p>Note that to see the 'Geology' layer (layer options in top right corner) you may have to zoom out. </p>
-
+<br>
 <div class ="after-map">
   <br>
 <h2>Fabrics: </h2>

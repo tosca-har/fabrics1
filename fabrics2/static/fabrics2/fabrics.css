@@ -101,9 +101,6 @@ color: white;
   color: rgb(119, 116, 116);
 }
 
-
-
-
 ul {
   list-style: none;
   margin: 2rem 0rem 1rem 2rem;
@@ -114,12 +111,8 @@ ul {
   box-shadow: 0 2px 8px rgba(0,0,0,0.26);
   padding: 1rem;
   border-radius: 16px;
-  background-color: #2d2d2d; 
-  
+  background-color: #2d2d2d;   
 }
-
-
-
 li{
   margin: 1rem 0;
   text-align: left;
@@ -127,7 +120,6 @@ li{
   border-bottom: 1px solid white;
   padding-bottom: 1rem;
 }
-
 
 li a {
 text-decoration: none;
@@ -195,9 +187,71 @@ text-decoration: none;
 color:  #f1eeee;
 } 
 
-
 .site a:hover,
 .site a:active {
+color: #e35d30;
+}
+
+.period {
+  clear: left;
+  width: 100%;
+}
+.period ul {
+  height: auto; 
+  font-size: 2rem;
+  width: 90%;
+  margin: 0rem 0rem 0.0rem 1rem;
+  padding-left: 1rem; 
+  line-height: 2; 
+  color:  white;
+}
+
+.inperiod {
+  clear: none;
+}
+.inperiod ul {
+  list-style: none;
+  margin: 0rem 0rem 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+  padding: 0rem;
+  border-radius: 16px;
+  background-color: #2d2d2d; 
+  font-size: 1.5rem; 
+  line-height: 1.5; 
+}
+.period li{
+  margin: 0rem 0rem;
+  text-align: left;
+  border-bottom: none; 
+  padding-bottom: 0rem; 
+  padding-top: 0rem;
+  line-height: 1.2; 
+  font-size: 1rem;
+}
+.inperiod li{
+  margin: 0rem 0;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: none; 
+  padding-bottom: 0rem; 
+}
+.period li a {
+text-decoration: none;
+color:  #f8e64f;
+}
+
+.inperiod li a {
+text-decoration: none;
+color:  #f1eeee;
+} 
+
+
+.period a:hover,
+.period a:active {
 color: #e35d30;
 }
 

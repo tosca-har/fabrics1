@@ -3,6 +3,21 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 
 
+class ExternalLink(models.Model):
+    slug = models.SlugField(default="", blank= True, null = False, db_index=True)
+    name = models.CharField(max_length= 50, blank=True)
+    org = models.CharField(max_length= 200, blank=True)
+    first = models.CharField(max_length= 200, blank=True)
+    last = models.CharField(max_length= 200, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.org} ({self.name})" 
+
+
 class Report(models.Model):
     slug = models.SlugField(default="", blank= True, null = False, db_index=True)
     name = models.CharField(max_length= 20, blank=True)
@@ -110,8 +125,10 @@ class CeramicPeriod(models.Model):
     periodo = models.CharField(null=True, max_length= 100, blank=True)
     parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='children')
     fabrics = models.ManyToManyField(Fabric, related_name="ceramic_periods", blank=True)
-    image_name = models.CharField(null=True, max_length=100, blank=True)
-    image_link = models.CharField(null=True, max_length=100, blank=True)
+    image_name = models.CharField(null=True, max_length=200, blank=True)
+    image_link = models.CharField(null=True, max_length=200, blank=True)
+    image_attribution = models.CharField(null=True, max_length=500, blank=True)
+    external_link = models.ManyToManyField(ExternalLink, related_name="ceramic_periods", blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -167,6 +184,7 @@ class Site(models.Model):
     dickinson_lithology = models.CharField(null=True, blank=True, max_length=200)
     comments = models.TextField(null=True, blank=True)
     volcano = models.ManyToManyField(Volcano, related_name="site", blank=True)
+    external_link = models.ManyToManyField(ExternalLink, related_name="sites", blank=True)
    
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -258,6 +276,7 @@ class Wikisite(models.Model):
     volcano = models.ManyToManyField(Volcano, related_name="wikisite", blank=True)
     ceramic_periods = models.ManyToManyField(CeramicPeriod, related_name="wikisites", blank=True)
     dickinson_lithology = models.CharField(null=True, blank=True, max_length=300)
+    external_link = models.ManyToManyField(ExternalLink, related_name="wikisites", blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

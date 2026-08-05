@@ -21,8 +21,9 @@
 
 <br>
 {% if period.image_name %}
-<figure><img src={{period.image_name}} alt="vessel examples" height:"50">
-<figcaption> Example vessels/sherds. <a class="caplink" href="{{period.image_link}}" target="_blank">Available via wikicommons.</a> 
+ <figure><img src={{period.image_name}} alt="vessel examples" height:"50"> 
+
+<figcaption> Example vessels/sherds. {{period.image_attribution}} <a class="caplink" href="{{period.image_link}}" target="_blank">Available here.</a> 
       </figcaption>
     </figure>
 <br>
@@ -47,6 +48,15 @@
   {% endfor %}
 {% endif%} 
  
+
+ {% if externallinks %}
+ <br>
+  <h2>Examples in collections (and other external links):</h2>
+  {% for ex in externallinks %}
+<p><a href="{{ex.first}}{{ex.last}}" target="_blank">{{ex.org}}</a> </p>
+  {% endfor %}
+{% endif%} 
+
 <div class ="after-map">
   <br>
 
