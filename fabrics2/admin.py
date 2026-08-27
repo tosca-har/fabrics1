@@ -50,7 +50,7 @@ admin.site.register(SuperFabric, SuperFabricAdmin)
 
 class CeramicPeriodAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
-    ordering = ('time_start','name',)
+    ordering = ('name',)
     
 admin.site.register(CeramicPeriod, CeramicPeriodAdmin)
 
