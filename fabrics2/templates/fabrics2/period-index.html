@@ -143,7 +143,7 @@
         </ul></li>
         <li> <a href="{% url "period" "early-metal-age-maluku-tengah" %}"> Early Metal Age Maluku Tengah </a> (2300-1000 BP)</li>  
         <li> <a href="{% url "period" "early-metal-age-timor" %}"> Early Metal Age Timor </a> (2300-1500 BP)</li>  
-
+        <li><a href="{% url "period" "massim-early-papuan" %}"> Massim Early Papuan </a> (2300-1600 BP)</li>
         <li><a href="{% url "period" "post-lapita-buka" %}"> Post Lapita Buka </a> (2200-0 BP)
         <ul>
           <li><a href="{% url "period" "sohano" %}"> Sohano </a> (2200-1400 BP)</li>
@@ -160,8 +160,9 @@
           </ul></li>
           </li>
         </ul></li>
-        <li><a href="{% url "period" "massim-early-papuan" %}"> Massim Early Papuan </a> (2300-1600 BP)</li>
+        
         <li><a href="{% url "period" "early-papuan-ware" %}"> Early Papuan Ware </a> (2200-1000 BP)</li>
+        <li><a href="{% url "period" "sentani-ware" %}"> Sentani Ware </a> (2100-2000 BP)</li>
         <li><a href="{% url "period" "navatu" %}"> Navatu </a> (2100-850 BP)</li>
         <li><a href="{% url "period" "sinapupu-imported" %}"> Singapupu Imported </a> (2100-800 BP)</li>
 
@@ -169,7 +170,8 @@
         <li><a href="{% url "period" "early-mailu-is" %}"> Early Mailu Is. </a> (2000-1500 BP)</li>
         <li><a href="{% url "period" "peinais" %}"> Peinais </a> (2000-1000 BP)</li>
         <li><a href="{% url "period" "yap-plainware" %}"> Yap Plainware </a> (1900-0 BP)</li>
-        <li><a href="{% url "period" "admiralty-post-lapita" %}"> Admiralty Post-Lapita </a> (1800-800 BP)</li>        
+        <li><a href="{% url "period" "admiralty-post-lapita" %}"> Admiralty Post-Lapita </a> (1800-800 BP)</li>   
+        <li><a href="{% url "period" "kuadeware-ware" %}"> Kuadeware Ware </a> (1700-1500 BP)</li>     
         <li><a href="{% url "period" "ancestral-sio" %}"> Ancestral Sio </a> (1700-500 BP)</li>
 
         <li><a href="{% url "period" "transitional-marianas" %}"> Transitional Marianas </a> (1600-1000 BP)</li>
@@ -188,7 +190,7 @@
         </ul></li>
         <li><a href="{% url "period" "early-shortland" %}"> Early Shortland </a> (1500-1000 BP)</li>
         <li><a href="{% url "period" "mayri" %}"> Mayri </a> (1500-400 BP)</li>
-        <li><a href="{% url "period" "historic-timor" %}"> Historic Timor </a> (1500-0 BP)</li>
+        <li><a href="{% url "period" "puhu-historic-timor" %}"> Puhu (Historic Timor)  </a> (1500-0 BP)</li>
         
         <li><a href="{% url "period" "sumalo" %}"> Sumalo </a> (1400-1000 BP)</li>
         <li><a href="{% url "period" "nimowa-early" %}"> Nimowa Early </a> (1350-1300 BP)</li>
@@ -202,9 +204,44 @@
         <li><a href="{% url "period" "yap-laminated-ware" %}"> Yap Laminated Ware </a> (1100-0 BP)</li>
         <li><a href="{% url "period" "early-muyua" %}"> Early Muyua </a> (1050-500 BP)</li>
         <li><a href="{% url "period" "nan-madol-plainware" %}"> Nan Madol Plainware </a> (1000-800 BP)</li>
-        <li><a href="{% url "period" "coiled-maluku-tengah" %}"> Coiled Maluku Tengah </a> (1000-0 BP)</li>
-        <li><a href="{% url "period" "non-coiled-maluku-tengah" %}"> Non-Coiled Maluku Tengah </a> (1000-0 BP)</li>
-                <li><a href="{% url "period" "forna-maluku" %}"> Forna (Maluku) </a> (1100-0 BP)</li>
+        <li><a href="{% url "period" "recent-maluku-tengah" %}"> Recent Maluku Tengah </a> (1000-0 BP)
+          <ul>
+            <li><a href="{% url "period" "forna-geser-gorom" %}"> Forna (Geser-Gorom) </a> (1000-0 BP)</li>
+            <li><a href="{% url "period" "forna-kaibobo" %}"> Forna (Kaibobo) </a> (1000-0 BP)</li>
+            <li><a href="{% url "period" "recent-haruku" %}"> Recent Haruku </a> (1000-0 BP)
+            <ul>
+              <li><a href="{% url "period" "sempeh-haruku" %}"> Sempeh (Haruku) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "belanga-haruku" %}"> Belanga (Haruku) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "dangdang-haruku" %}"> Dangdang (Haruku) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "forna-haruku" %}"> Forna (Haruku) </a> (1000-0 BP)</li>
+            </ul></li>
+            <li><a href="{% url "period" "recent-hitu" %}"> Recent Hitu </a> (1000-0 BP)
+            <ul>
+              <li><a href="{% url "period" "sempeh-hitu" %}"> Sempeh (Hitu) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "belanga-hitu" %}"> Belanga (Hitu) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "tajela-hitu" %}"> Tajela (Hitu) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "forna-hitu" %}"> Forna (Hitu) </a> (1000-0 BP)</li>
+            </ul></li>
+            <li><a href="{% url "period" "recent-larike-wakasihu" %}"> Recent Larike Wakasihu </a> (1000-0 BP)
+            <ul>
+              <li><a href="{% url "period" "sempeh-larike-wakasihu" %}"> Sempeh (Larike Wakasihu) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "belanga-larike-wakasihu" %}"> Belanga (Larike Wakasihu) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "forna-larike-wakasihu" %}"> Forna (Larike Wakasihu) </a> (1000-0 BP)</li>
+            </ul></li>
+            <li><a href="{% url "period" "recent-saparua" %}"> Recent Saparua </a> (1000-0 BP)
+            <ul>
+              <li><a href="{% url "period" "dangdang-saparua" %}"> Dangdang (Saparua) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "sempeh-saparua" %}"> Sempeh (Saparua) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "gendih-saparua" %}"> Gendih (Saparua) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "teloi-saparua" %}"> Teloi (Saparua) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "cobe-saparua" %}"> Cobe (Saparua) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "forna-saparua" %}"> Forna (Saparua) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "belanga-suami-saparua" %}"> Belanga Suami (Saparua) </a> (1000-0 BP)</li>
+              <li><a href="{% url "period" "belanga-ayam-saparua" %}"> Belanga Ayam (Saparua) </a> (1000-0 BP)</li>
+            </ul></li>
+        </ul></li>
+
+      
         <li><a href="{% url "period" "latte-plainware" %}"> Latte Plainware </a> (1000-429 BP)
         <ul>
           <li><a href="{% url "period" "early-latte-plainware" %}"> Early Latte Plainware </a> (1000-750 BP)</li>
@@ -246,7 +283,27 @@
             <li><a href="{% url "period" "tjako-titan" %}"> Tjako (Titan) </a> (300-0 BP)</li>
           </ul></li>
         </ul></li>
-        <li><a href="{% url "period" "aru-ware" %}"> Aru ware </a> (800-0 BP)</li>
+
+        <li><a href="{% url "period" "recent-south-maluku" %}"> Recent South Maluku </a> (800-0 BP)
+          <ul>
+          <li><a href="{% url "period" "recent-aru" %}"> Recent Aru </a> (800-0 BP)
+          <ul>
+            <li><a href="{% url "period" "baba-batuley" %}"> Baba (Batuley) </a> (800-0 BP)</li>
+            <li><a href="{% url "period" "gulor-batuley" %}"> Gulor (Batuley) </a> (800-0 BP)</li>
+            <li><a href="{% url "period" "diantan-batuley" %}"> Diantan (Batuley) </a> (800-0 BP)</li>
+            <li><a href="{% url "period" "dupa-batuley" %}"> Dupa (Batuley) </a> (800-0 BP)</li>
+          </ul></li>
+          <li><a href="{% url "period" "recent-banda" %}"> Recent Banda </a> (300-0 BP)
+          <ul>
+           <li><a href="{% url "period" "umba-banda" %}"> Umba (Banda) </a> (800-0 BP)</li>
+           <li><a href="{% url "period" "ana-banda" %}"> Ana (Banda) </a> (800-0 BP)</li>
+           <li><a href="{% url "period" "baun-banda" %}"> Baun (Banda) </a> (800-0 BP)</li>
+           <li><a href="{% url "period" "langa-banda" %}"> Langa (Banda) </a> (800-0 BP)</li>
+           <li><a href="{% url "period" "langa-betkanano-banda" %}"> Langa Betkanano (Banda) </a> (800-0 BP)</li>
+           <li><a href="{% url "period" "aufarano-banda" %}"> Aufarano (Banda) </a> (800-0 BP)</li>
+           <li><a href="{% url "period" "of-ofi-banda" %}"> Of-ofi (Banda) </a> (800-0 BP)</li>
+          </ul></li>
+        </ul></li>  
         <li><a href="{% url "period" "southern-massim-combed" %}"> Southern Massim Combed </a> (720-490 BP)</li>
         <li><a href="{% url "period" "expansion-period-marquesas" %}"> Expansion Period Marquesas </a> (650-350 BP)</li>
         <li><a href="{% url "period" "late-malakula-ware" %}"> Late Malakula ware </a> (600-0 BP)
