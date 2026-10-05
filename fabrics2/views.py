@@ -165,6 +165,8 @@ def report(request, slug):
         "report_sites": Site.objects.all().filter(fabrics__in=id_fabrics).distinct()
     })
 
+
+
 def site(request, slug):
     identified_site = get_object_or_404(Site, slug=slug)
     site_slides = identified_site.slides.all()
