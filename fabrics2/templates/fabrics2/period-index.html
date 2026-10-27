@@ -726,48 +726,54 @@
       <ul>
         <li><a href="{% url "period" "eastern-lapita" %}"> Eastern Lapita </a> (3000-2650 BP) 
         <ul>
-          <li><a href="{% url "period" "fiji-lapita-sigatoka" %}"> Fiji Lapita (Sigatoka) </a> (3200-2100 BP)</li>
-          <li><a href="{% url "period" "lau-period-1" %}"> Lau Period 1 </a> (2900-2700 BP)</li>        
+          <li><a href="{% url "period" "fiji-lapita-sigatoka" %}"> Fiji Lapita (Sigatoka) </a> (3200-2100 BP)
+          <ul>
+            <li><a href="{% url "period" "fiji-lapita-later" %}"> Fiji Lapita (Later) (Fijian Plainware) </a> (2500-2100 BP)</li>
+          </ul></li>
+          <li><a href="{% url "period" "lau-period-1" %}"> Lau Period 1 </a> (2900-2700 BP)</li>                
         </ul></li>        
       </ul></li>
       <li><a href="{% url "period" "polynesian-plainware" %}"> Polynesian Plainware </a> (2650-1700 BP) 
       <ul>
         <li><a href="{% url "period" "lau-period-2" %}"> Lau Period 2 </a> (2650-2050 BP)</li>
        </ul></li> 
-      <li><a href="{% url "period" "navatu" %}"> Navatu </a> (2100-850 BP)
+       <li><a href="{% url "period" "fiji-post-lapita" %}"> Fiji Post-Lapita </a> (2100-0 BP)
       <ul>
-        <li><a href="{% url "period" "lau-period-3" %}"> Lau Period 3 </a> (2000-1000 BP)</li>
-        <li><a href="{% url "period" "lau-period-4" %}"> Lau Period 4 </a> (1000-460 BP)</li>
-      </ul></li>
-      <li><a href="{% url "period" "vuda" %}"> Vuda </a> (850-150 BP)
-      <ul>
-        <li><a href="{% url "period" "lau-period-5a" %}"> Lau Period 5a </a> (340-200 BP)</li>
-      </ul></li></li>
-<li><a href="{% url "period" "recent-fiji" %}"> Recent Fiji </a> (350-0 BP)
-      <ul>
-        <li><a href="{% url "period" "ra" %}"> Ra </a> (350-0 BP)
+        <li><a href="{% url "period" "navatu" %}"> Navatu </a> (2100-850 BP)
         <ul>
-        <li><a href="{% url "period" "lau-period-5b" %}"> Lau Period 5b </a> (200-15 BP)</li>
+          <li><a href="{% url "period" "lau-period-3" %}"> Lau Period 3 </a> (2000-1000 BP)</li>
+          <li><a href="{% url "period" "lau-period-4" %}"> Lau Period 4 </a> (1000-460 BP)</li>
         </ul></li>
-        <li><a href="{% url "period" "kuro-fiji" %}"> Kuro (Fiji) </a> (350-0 BP)</li>
-        <li><a href="{% url "period" "vakariri-fiji" %}"> Vakariri (Fiji) </a> (350-0 BP)</li>
-        <li><a href="{% url "period" "saqa-fiji" %}"> Saqa (Fiji) </a> (500-0 BP)
+        <li><a href="{% url "period" "vuda" %}"> Vuda </a> (850-150 BP)
         <ul>
-          <li><a href="{% url "period" "mua-i-rua-fiji" %}"> Mua-i-rua (Fiji) </a> (350-0 BP)</li>
-          <li><a href="{% url "period" "saqa-ikabula-fiji" %}"> Saqa ikabula (Fiji) </a> (350-0 BP)</li>
-          <li><a href="{% url "period" "saqa-moli-fiji" %}"> Saqa moli (Fiji) </a> (350-0 BP)</li>
-          <li><a href="{% url "period" "saqa-tabua-fiji" %}"> Saqa tabua (Fiji) </a> (350-0 BP)</li>
-          <li><a href="{% url "period" "tagua-rua-fjii" %}"> Tagua rua (Fiji) </a> (350-0 BP)</li>
-          <li><a href="{% url "period" "kitu-fiji" %}"> Kitu (Fiji) </a> (350-0 BP)</li>
-        </ul></li>       
-        <li><a href="{% url "period" "sue-fiji" %}"> Sue (Fiji) </a> (350-0 BP)</li>
-        <li><a href="{% url "period" "dari-fiji" %}"> Dari (Fiji) </a> (500-0 BP)</li>
-        <li><a href="{% url "period" "ramarama-fiji" %}"> Ramarama (Fiji) </a> (350-0 BP)</li>
-        <li><a href="{% url "period" "vase-fiji" %}"> Vase (Fiji) </a> (350-0 BP)</li>
-        <li><a href="{% url "period" "kituqele-fiji" %}"> Kituqele (Fiji) </a> (350-0 BP)</li>
-        <li><a href="{% url "period" "mamaroi-ni-bulagai-fiji" %}"> Mamaroi ni bulagai (Fiji) </a> (350-0 BP)</li>
-        <li><a href="{% url "period" "vuluvulu-fiji" %}"> Vuluvulu (Fiji) </a> (350-0 BP)</li>
-      </ul></li>
+          <li><a href="{% url "period" "lau-period-5a" %}"> Lau Period 5a </a> (340-200 BP)</li>
+        </ul></li></li>
+        <li><a href="{% url "period" "recent-fiji" %}"> Recent Fiji </a> (350-0 BP)
+        <ul>
+          <li><a href="{% url "period" "ra" %}"> Ra </a> (350-0 BP)
+          <ul>
+            <li><a href="{% url "period" "lau-period-5b" %}"> Lau Period 5b </a> (200-15 BP)</li>
+          </ul></li>
+          <li><a href="{% url "period" "kuro-fiji" %}"> Kuro (Fiji) </a> (350-0 BP)</li>
+          <li><a href="{% url "period" "vakariri-fiji" %}"> Vakariri (Fiji) </a> (350-0 BP)</li>
+          <li><a href="{% url "period" "saqa-fiji" %}"> Saqa (Fiji) </a> (500-0 BP)
+          <ul>
+            <li><a href="{% url "period" "mua-i-rua-fiji" %}"> Mua-i-rua (Fiji) </a> (350-0 BP)</li>
+            <li><a href="{% url "period" "saqa-ikabula-fiji" %}"> Saqa ikabula (Fiji) </a> (350-0 BP)</li>
+            <li><a href="{% url "period" "saqa-moli-fiji" %}"> Saqa moli (Fiji) </a> (350-0 BP)</li>
+            <li><a href="{% url "period" "saqa-tabua-fiji" %}"> Saqa tabua (Fiji) </a> (350-0 BP)</li>
+            <li><a href="{% url "period" "tagua-rua-fjii" %}"> Tagua rua (Fiji) </a> (350-0 BP)</li>
+            <li><a href="{% url "period" "kitu-fiji" %}"> Kitu (Fiji) </a> (350-0 BP)</li>
+          </ul></li>       
+          <li><a href="{% url "period" "sue-fiji" %}"> Sue (Fiji) </a> (350-0 BP)</li>
+          <li><a href="{% url "period" "dari-fiji" %}"> Dari (Fiji) </a> (500-0 BP)</li>
+          <li><a href="{% url "period" "ramarama-fiji" %}"> Ramarama (Fiji) </a> (350-0 BP)</li>
+          <li><a href="{% url "period" "vase-fiji" %}"> Vase (Fiji) </a> (350-0 BP)</li>
+          <li><a href="{% url "period" "kituqele-fiji" %}"> Kituqele (Fiji) </a> (350-0 BP)</li>
+          <li><a href="{% url "period" "mamaroi-ni-bulagai-fiji" %}"> Mamaroi ni bulagai (Fiji) </a> (350-0 BP)</li>
+          <li><a href="{% url "period" "vuluvulu-fiji" %}"> Vuluvulu (Fiji) </a> (350-0 BP)</li>
+        </ul></li>
+        </ul></li>
     </ul>
 
     <h3 id="ton"> Tonga, Samoan Islands, Walis and Futuna </h3> 
