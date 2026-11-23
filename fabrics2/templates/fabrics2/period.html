@@ -89,7 +89,7 @@
         <td> {{fabric.lithics}}</td>
         </tr>
         <tr>
-          <td>{{ fabric.desc }}</a></td>
+          <td>{{ fabric.desc }}</td>
           <td data-tag="{{fabric.calcareous_min}}"> {{fabric.calcareous_min}}</td>
           <td data-tag="{{fabric.quartz_min}}"> {{fabric.quartz_min}}</td>
           <td data-tag="{{fabric.feldspar_min}}">{{fabric.feldspar_min}}</td>
@@ -175,7 +175,7 @@
 
 
 {% endif%}  
-{% if time_start_ref.fullname  %}
+{% if period.time_start_ref  %}
 <h2>Reference:</h2>
 <h3> <a href="{% url "report-type" period.time_start_ref.slug %}">{{ period.time_start_ref.fullname }}</a> ({{ period.time_start_ref.author_list }}) </h3>
 {% endif%} 
