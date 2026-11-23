@@ -148,7 +148,7 @@
       <ul>
         <li><a href="{% url "period" "south-png-lapita" %}"> South PNG Lapita </a> (2900-2200 BP)</li>
       </ul></li>
-      <li><a href="{% url "period" "kasasinabwana-plain-pottery" %}"> Kasasinabwana Plain Pottery </a> (2800-2300 BP)</li>
+      <li><a href="{% url "period" "kasasinabwana-plain" %}"> Kasasinabwana Plain Pottery </a> (2800-2300 BP)</li>
       <li><a href="{% url "period" "massim-early-papuan" %}"> Massim Early Papuan </a> (2300-1600 BP)</li>
       <li><a href="{% url "period" "early-papuan-ware" %}"> Early Papuan Ware </a> (2200-1000 BP)</li>
       <li><a href="{% url "period" "nyapin" %}"> Nyapin </a> (2000-1600 BP)</li>
@@ -164,7 +164,7 @@
         <li><a href="{% url "period" "late-rainu" %}"> Late Rainu </a> (750-500 BP)</li>
       </ul></li>      
       <li><a href="{% url "period" "early-muyua" %}"> Early Muyua </a> (1050-500 BP)</li>
-      <li><a href="{% url "period" "south-papua-middle" %}"> South Papua Middle Period </a> (1000-450 BP)</li>
+      <li><a href="{% url "period" "south-papua-middle-period" %}"> South Papua Middle Period </a> (1000-450 BP)</li>
       <ul>
         <li><a href="{% url "period" "south-papua-middle-hiccup" %}"> South Papua Middle Hiccup </a> (1000-750 BP)</li>
         <li><a href="{% url "period" "south-papua-middle-post-hiccup" %}"> South Papua Middle Post-Hiccup </a> (750-450 BP)</li>
@@ -615,7 +615,11 @@
       </ul></li>
       <li><a href="{% url "period" "post-lapita-solomons" %}"> Post-Lapita Solomons </a> (2500-0 BP) 
       <ul>
-        <li><a href="{% url "period" "early-post-lapita-solomons" %}"> Early Post-Lapita Solomons </a> (2700-2000 BP)</li>
+        <li><a href="{% url "period" "early-post-lapita-solomons" %}"> Early Post-Lapita Solomons </a> (2700-2000 BP)
+         <ul>
+          <li><a href="{% url "period" "plainware-santa-cruz" %}"> Plainware Santa Cruz </a> (2700-2000 BP)</li>
+          </ul></li>
+         
         <li><a href="{% url "period" "nuatambu-ware" %}"> Nuatambu ware </a> (1000-200 BP)</li>
         <li><a href="{% url "period" "southeast-choiseul-incised-and-impressed" %}"> Southeast Choiseul Incised and Impressed </a> (850-200 BP)</li>
         <li><a href="{% url "period" "roviana-plainware" %}"> Roviana Plainware </a> (800-100 BP)</li>
@@ -657,12 +661,16 @@
       </ul></li> 
       <li><a href="{% url "period" "post-lapita-erromango-and-aneityum" %}"> Post-Lapita Erromango and Aneityum </a> (2800-2000 BP) 
       <ul>
-        <li><a href="{% url "period" "early-ifo" %}"> Early Ifo </a> (2600-2500 BP)</li>
-        <li><a href="{% url "period" "late-ifo" %}"> Late Ifo </a> (2500-2000 BP)</li>
-      </ul></li>  
       <li><a href="{% url "period" "ponamla" %}"> Ponamla </a> (2700-2600 BP)</li>
+        <li><a href="{% url "period" "ifo" %}"> Ifo </a> (2600-2000 BP)
+        <ul>
+          <li><a href="{% url "period" "early-ifo" %}"> Early Ifo </a> (2600-2500 BP)</li>
+          <li><a href="{% url "period" "late-ifo" %}"> Late Ifo </a> (2500-2000 BP)</li>
+        </ul></li>
+      </ul></li>  
+      
       <li><a href="{% url "period" "post-lapita-banks" %}"> Post-Lapita Banks </a> (2700-2000 BP)</li>
-      <li><a href="{% url "period" "plainware-santa-cruz" %}"> Plainware Santa Cruz </a> (2700-2000 BP)</li>
+     
       <li><a href="{% url "period" "post-lapita-malakula" %}"> Post-Lapita Malakula </a> (2700-0 BP) 
       <ul>
         <li><a href="{% url "period" "malua-ware" %}"> Malua Ware </a> (2700-2500 BP)</li>
